@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'MoveWatch',
+      title: 'Urban Arts Summer Intensive',
       xhtml: true,
       inject: false,
       template: require('html-webpack-template'),

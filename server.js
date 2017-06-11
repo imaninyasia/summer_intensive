@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // put routes here
 
-app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/']}));
+app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/', '/favicon.ico', '/dashboard', '/courses']}));
 
 app.get('*', (req,res)=>{
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))

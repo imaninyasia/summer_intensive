@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { render} from 'react-dom';
 import ReactDOM from 'react-dom';
-import Landing from './Routes/Landing/Landing.jsx';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import Container from './Routes/Container/Container.jsx'
+import { HashRouter as Router, Route, BrowserRouter } from 'react-router-dom';
+import { IndexRoute, browserHistory } from 'react-router';
+import Container from './Routes/Container/Container.jsx';
+import Dashboard from './Routes/Dashboard/Dashboard.jsx';
+import Interactive_Zone from './Routes/Interactive_Zone/Interactive_Zone.jsx'
+import Landing from './Routes/Landing/Landing.jsx'
 
-import registerServiceWorker from './registerServiceWorker';
-
-
-ReactDOM.render(<Router history={browserHistory}>
-        <Route path='/' component={ Container }>
-          <IndexRoute component={Landing} />
-          <Route path='movewatch' token={'userID'} component={Dashboard} />
-          <Route path='Landing' component={Landing} />
-        </Route>
-      </Router>, document.querySelector('#root-container'));
-
+ReactDOM.render((
+   <BrowserRouter history={browserHistory}>
+   <div>
+      <Route exact path="/" component={Landing} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/courses" component={Interactive_Zone} />
+      </div>
+   </BrowserRouter >
+), document.getElementById('root-container'));
