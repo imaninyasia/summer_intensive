@@ -10,6 +10,7 @@ CREATE TABLE users(
   password VARCHAR NOT NULL UNIQUE,
   userToken VARCHAR
   final_grade VARCHAR
+  profile_img VARCHAR
 );
 
 CREATE TABLE user_quiz(
@@ -18,12 +19,17 @@ CREATE TABLE user_quiz(
   answer TEXT
 );
 
-CREATE TABLE answer_sheet(
-  description TEXT NOT NULL,
-  price VARCHAR NOT NULL,
-  room_id INT,
-  username VARCHAR
+CREATE TABLE answer_sheet_mult(
+  question_id INT PRIMARY KEY,
+  question VARCHAR NOT NULL,
+  answer INT NOT NULL
 );
+
+CREATE TABLE answer_sheet_long(
+  question_id INT PRIMARY KEY,
+  question_long VARCHAR NOT NULL,
+  answer_long VARCHAR NOT NULL
+)
 
 
 
