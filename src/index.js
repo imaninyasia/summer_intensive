@@ -7,7 +7,7 @@ import Dashboard from './Routes/Dashboard/Dashboard.jsx';
 import Interactive_Zone from './Routes/Interactive_Zone/Interactive_Zone.jsx'
 import Landing from './Routes/Landing/Landing.jsx'
 
-ReactDOM.render((
+render((
    <BrowserRouter history={browserHistory}>
    <div>
       <Route exact path="/" component={Landing} />
