@@ -4,11 +4,26 @@ export default class Signup extends Component {
 
   constructor(props){
     super(props)
+    this.state = {
+
+    }
     this.submit = this.submit.bind(this)
   }
+
   submit(e){
     e.preventDefault()
     console.log('signup button pressed')
+    fetch('/user/signup', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: this.refs.username.value,
+        password: this.refs.password.value
+      })
+    })
+    this.props.next.props.history.push('/dashboard')
   }
 
   render(){
@@ -18,11 +33,11 @@ export default class Signup extends Component {
           <form onSubmit={this.submit} className="signup-form">
             <div>
               <label htmlFor="signup-username">Username</label>
-              <input id="signup-username" type="text" required />
+              <input id="signup-username" ref="username" type="text" required />
             </div>
             <div>
             <label htmlFor="signup-password">Password</label>
-              <input id="signup-password" type="password" required />
+              <input id="signup-password" ref="password" type="password" required />
             </div>
             <div>
             <label htmlFor="signup-username">Username</label>

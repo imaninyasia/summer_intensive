@@ -4,16 +4,41 @@ import {withRouter} from "react-router-dom";
 export default class Login extends Component {
   constructor(props){
     super(props)
+    this.state = {
+      currentToken: 0
+    }
     this.submit = this.submit.bind(this)
   }
    submit(e) {
     e.preventDefault()
-    console.log('username', this.refs.username.value)
-    this.props.next.props.history.push('/dashboard')
-  }
-  nextPage(){
-    console.log("hey there")
-    withRouter.push('/courses')
+    console.log('clicked')
+    fetch('/user/login', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: this.refs.username.value,
+        password: this.refs.password.value
+      })
+    })
+    .then(r => r.json())
+    .then((token) => {
+      localStorage.setItem('token', token)
+      console.log('the token is being set')
+      if(localStorage.getItem('token')==localStorage.getItem('token')){
+      this.props.next.props.history.push('/dashboard')
+    } else {
+      console.log('error at login')
+    }
+    })
+    const checklogin = localStorage.getItem('userName')
+    if (checklogin != localStorage.getItem('userName')){
+      console.log('not logged in')
+    }
+    if (checklogin==localStorage.getItem('userName')){
+    }
+
   }
   render(){
     const {username, password} = this.props
@@ -26,7 +51,7 @@ export default class Login extends Component {
               </div>
               <div>
               <label htmlFor="password">Password</label>
-              <input id="password" type="password" required />
+              <input id="password" ref="password" type="password" required />
               </div>
               <button onClick={this.submit}>submit</button>
             </form>
