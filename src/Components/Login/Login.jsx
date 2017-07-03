@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import fetch from 'isomorphic-fetch';
 import {withRouter} from "react-router-dom";
 
 export default class Login extends Component {
@@ -23,23 +24,31 @@ export default class Login extends Component {
       })
     })
     .then(r => r.json())
-    .then((token) => {
-      localStorage.setItem('token', token)
-      console.log('the token is being set')
-      if(localStorage.getItem('token')==localStorage.getItem('token')){
-      this.props.next.props.history.push('/dashboard')
-    } else {
-      console.log('error at login')
-    }
-    })
-    const checklogin = localStorage.getItem('userName')
-    if (checklogin != localStorage.getItem('userName')){
-      console.log('not logged in')
-    }
-    if (checklogin==localStorage.getItem('userName')){
-    }
+    .then((user) => {
+      let data = user
+      if (data.token == undefined || data.token == null){
+        console.log('is null')
+        console.log('error at login')
+      }else {
+      console.log(user, 'is user')
+      localStorage.setItem('token', user.token)
+      localStorage.setItem('ind', user.username)
+      console.log(user.admin)
+      if (user.admin == true){
+        console.log('admin')
+        let val = user.admin
+        val.toString()
+      this.props.next.props.history.push("/dashboard/"+val)
+      }else if (user.admin == false){
+        let val = user.admin
+        val.toString()
+        this.props.next.props.history.push('/dashboard/'+val)
+      }
+      }
+      }
 
-  }
+      )
+}
   render(){
     const {username, password} = this.props
     return(

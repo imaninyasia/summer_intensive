@@ -13,7 +13,11 @@ export default class Signup extends Component {
   submit(e){
     e.preventDefault()
     console.log('signup button pressed')
-    fetch('/user/signup', {
+    let user = []
+    if (this.refs.password.value == this.refs.confirm.value) {
+      if (this.refs.username != "admin"){
+        let admin = false
+      fetch(`/user/signup/${admin}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -23,7 +27,46 @@ export default class Signup extends Component {
         password: this.refs.password.value
       })
     })
-    this.props.next.props.history.push('/dashboard')
+      .then((r)=>r.json())
+      .then((data) =>{
+        user=data.user_id
+        console.log('sending non-admin to dashboard', data)
+
+       fetch('/user/user/'+user, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: this.refs.username.value,
+        password: this.refs.password.value
+      })
+    })
+       this.props.next.props.history.push('/dashboard/false')
+      })
+
+    } else {
+      let admin = true
+      fetch(`/user/signup/${admin}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: this.refs.username.value,
+        password: this.refs.password.value
+      })
+    })
+      .then(() =>{
+        console.log('sending admin to dashboard')
+      this.props.next.props.history.push('/dashboard/true')
+
+      })
+
+    }
+  }
+    else
+      console.log('password not the same')
   }
 
   render(){
@@ -41,7 +84,7 @@ export default class Signup extends Component {
             </div>
             <div>
             <label htmlFor="signup-username">Username</label>
-              <input id="signup-password-confirm" type="password" required />
+              <input id="signup-password-confirm" ref="confirm" type="password" required />
             </div>
             <button>Submit</button>
             </form>

@@ -1,37 +1,61 @@
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_quiz;
 DROP TABLE IF EXISTS answer_sheet;
-DROP TABLE IF EXISTS answer_sheet_long;
+DROP TABLE IF EXISTS video_relations;
 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS answer_sheet_long;
+DROP TABLE IF EXISTS videos;
 BEGIN;
 
 CREATE TABLE users(
   user_id SERIAL PRIMARY KEY,
   username VARCHAR NOT NULL UNIQUE,
   password VARCHAR NOT NULL UNIQUE,
-  admin BOOLEAN
+  admin BOOLEAN,
   final_grade VARCHAR,
-  profile_img VARCHAR
+  profile_img TEXT
 );
 
-CREATE TABLE user_quiz(
-  user_id INT PRIMARY KEY,
-  question TEXT,
-  answer TEXT
+CREATE TABLE videos(
+  video_id INT PRIMARY KEY,
+  source TEXT,
+  watched BOOLEAN
+);
+
+CREATE TABLE video_relations(
+  id SERIAL PRIMARY KEY,
+  video_id INT,
+  user_id INT,
+  watched BOOLEAN,
+  FOREIGN KEY (video_id) REFERENCES videos(video_id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
+
 );
 
 CREATE TABLE answer_sheet(
   question_id INT PRIMARY KEY,
-  question VARCHAR NOT NULL,
+  question TEXT NOT NULL,
   answer_short VARCHAR,
-  answer_long TEXT
+  answer_long TEXT,
+  video_id INT,
+  choice_1 TEXT,
+  choice_2 TEXT,
+  choice_3 TEXT,
+  FOREIGN KEY (video_id) REFERENCES videos(video_id)
 );
 
-CREATE TABLE answer_sheet_long(
-  question_id INT PRIMARY KEY,
-  question_long VARCHAR NOT NULL,
-  answer_long VARCHAR NOT NULL
+
+CREATE TABLE user_quiz(
+  id INT PRIMARY KEY,
+  user_id INT ,
+  answer TEXT,
+  question_id INT,
+  FOREIGN KEY (question_id) REFERENCES answer_sheet(question_id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
+
 );
+
+
 
 
 

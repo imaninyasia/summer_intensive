@@ -11,8 +11,8 @@ render((
    <BrowserRouter history={browserHistory}>
    <div>
       <Route exact path="/" component={Landing} value={2}/>
-      <Route path="/dashboard"  component={Dashboard} />
-      <Route path="/courses" component={Interactive_Zone} />
+      <Route path="/dashboard/:admin"  component={Dashboard} />
+      <Route path="/courses/:video_id" component={Interactive_Zone} />
       <Route path="*" component={Whoops} />
       </div>
    </BrowserRouter >

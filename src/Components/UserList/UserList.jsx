@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import User from '../User/User.jsx';
-
+import './UserList.css'
 export default class UserList extends Component{
 
   constructor(props){
@@ -14,10 +14,11 @@ export default class UserList extends Component{
 
   componentDidMount() {
     this.setState({loading: true})
-    fetch('https://api.randomuser.me/?nat=us&results=12')
+    fetch('/student/')
     .then(response => response.json())
-    .then(json => json.results)
-    .then(users => this.setState({
+    .then(json => json)
+    .then(users =>
+      this.setState({
       users,
       loading: false
     }))
@@ -34,11 +35,11 @@ export default class UserList extends Component{
                 }
                 {(users.length)?
                   users.map(
-                    (user, i) =>
-                <User Key={i}
-                      name={user.name.first}
+                    (user, index) =>
+                <User Key={index}
+                      name={user.username}
                       email={user.email}
-                      thumbnail={user.picture.thumbnail}/>
+                      thumbnail={user.profile_img}/>
                       ):
                     <span> Currently 0 Members </span>
                 }
