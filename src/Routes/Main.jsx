@@ -1,6 +1,5 @@
 import {Switch, Route} from 'react-router-dom';
 import React, { Component } from 'react';
-import Container from './Container/Container.jsx';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Interactive_Zone from './Interactive_Zone/Interactive_Zone.jsx'
 import Landing from './Landing/Landing.jsx'
@@ -23,6 +22,7 @@ export default class Main extends Component{
           <Route path="*" component={Whoops} />
         </Switch>
       </main>
+
       )
   }
 }

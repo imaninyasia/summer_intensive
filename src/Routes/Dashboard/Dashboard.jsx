@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UserList from '../../Components/UserList/UserList.jsx'
 import VideoList from '../../Components/VideoList/VideoList.jsx'
-import Logout from '../../Components/Logout/Logout.jsx'
 export default class Dashboard extends Component{
 
   constructor(props){
@@ -81,7 +80,7 @@ componentWillMount(){
     return(
       <div>
       <h1>Dashboard</h1>
-      <Logout />
+
       {(admin==true) ?<UserList /> :
                       <VideoList history={this.props}/>}
       </div>

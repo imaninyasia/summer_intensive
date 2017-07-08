@@ -10,9 +10,10 @@ super(props);
 
 render(){
   return(
-    <div>
+    <div className="container">
     <Header />
     <Main />
+    <footer>this is a footer</footer>
     </div>
     )
 }

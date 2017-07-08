@@ -81,7 +81,6 @@ console.log('the video is playing')
     console.log(this.state.currentTime)
     return(
     <div className={className} style={{display: 'inline-block'}}>
-    {(course==true) ? <Link to={`/dashboard`}>Return to Dashboard</Link> :null}
       <h1>Video ID:{video_id}</h1>
        <Vimeo onPlay={this.play}
             className="vimeo_vid"

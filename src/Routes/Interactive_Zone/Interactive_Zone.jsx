@@ -63,7 +63,6 @@ export default class Interactive_Zone extends Component{
                     :
               <span> Currently {video} Videos </span>
                 }
-        <button onClick={this.logoutnow}>logout</button>
 
       </div>
       )
