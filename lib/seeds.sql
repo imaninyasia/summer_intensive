@@ -1,12 +1,12 @@
 BEGIN;
 
 
-INSERT INTO videos (video_id, source, watched) VALUES
+INSERT INTO videos (video_id, source, watched, vimeo_id) VALUES
 
-(1, 'https://player.vimeo.com/video/216706579', FALSE ),
-(2, 'https://www.youtube.com/embed/9kOpgbYqkQk', FALSE),
-(3, 'https://www.youtube.com/embed/YMQRFT4bZuc', FALSE),
-(4, 'https://www.youtube.com/embed/XKqWnOtbSr8', FALSE);
+(1, 'https://player.vimeo.com/video/216706579', FALSE, '216706579' ),
+(2, 'https://player.vimeo.com/video/224011571', FALSE, '224011571'),
+(3, 'https://player.vimeo.com/video/203494889', FALSE, '203494889'),
+(4, 'https://player.vimeo.com/video/222729677', FALSE, '222729677');
 
 INSERT INTO answer_sheet (question_id, question, answer_short, video_id, choice_1, choice_2, choice_3) VALUES
 

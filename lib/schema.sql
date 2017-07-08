@@ -19,7 +19,8 @@ CREATE TABLE users(
 CREATE TABLE videos(
   video_id INT PRIMARY KEY,
   source TEXT,
-  watched BOOLEAN
+  watched BOOLEAN,
+  vimeo_id TEXT
 );
 
 CREATE TABLE video_relations(
@@ -46,7 +47,7 @@ CREATE TABLE answer_sheet(
 
 
 CREATE TABLE user_quiz(
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   user_id INT ,
   answer TEXT,
   question_id INT,

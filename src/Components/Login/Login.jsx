@@ -38,11 +38,11 @@ export default class Login extends Component {
         console.log('admin')
         let val = user.admin
         val.toString()
-      this.props.next.props.history.push("/dashboard/"+val)
+      this.props.next.props.history.push("/dashboard")
       }else if (user.admin == false){
         let val = user.admin
         val.toString()
-        this.props.next.props.history.push('/dashboard/'+val)
+        this.props.next.props.history.push('/dashboard/')
       }
       }
       }

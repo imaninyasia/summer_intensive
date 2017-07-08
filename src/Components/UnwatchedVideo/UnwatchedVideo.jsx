@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import QuizList from '../QuizList/QuizList.jsx'
-import './Video.css'
+import './UnwatchedVideo.css'
 import Vimeo from 'react-vimeo';
 import fetch from 'isomorphic-fetch';
-export default class Video extends Component{
+export default class UnwatchedVideo extends Component{
   constructor(props){
     super(props)
     this.state = {
@@ -38,20 +38,19 @@ export default class Video extends Component{
 timeupdate(e){
   let duration
   let currentTime
-  console.log(e.data)
-  console.log(duration)
   if (e.data.event = "timeupdate"){
     this.setState({
   duration: e.data.data.duration,
   currentTime: e.data.data.seconds
 })
+ console.log(this.state.duration)
+  console.log(this.state.currentTime)
 
   }
-
-  if (this.state.currentTime < this.state.duration && this.state.currentTime>this.state.duration-3){
+  if (this.state.currentTime < this.state.duration && this.state.currentTime>this.state.duration-1){
     console.log('ended')
     let vid_id = this.props.video_id
-       let user = localStorage.getItem('ind')
+    let user = localStorage.getItem('ind')
      fetch('/videos/update/'+vid_id, {
       method: 'POST',
       headers: {
@@ -77,16 +76,23 @@ console.log('the video is playing')
 }
   render(){
     const {className, src, allowFullScreen, watched, video_id, course, video_num} = this.props
-    console.log(this.state.duration)
-    console.log(this.state.currentTime)
     return(
-    <div className={className} style={{display: 'inline-block'}}>
-    {(course==true) ? <Link to={`/dashboard`}>Return to Dashboard</Link> :null}
-      <h1>Video ID:{video_id}</h1>
-       <Vimeo onPlay={this.play}
+
+    <div className={className}>
+
+    <h1>Video ID:{video_id}</h1>
+     <Vimeo onPlay={this.play}
             className="vimeo_vid"
             videoId={ video_num } />,
-      {((watched==false && course==true) ||(watched==true))? <span> watched video </span> : <Link to={`/courses/${video_id}`}>Quiz</Link>}
+
+
+
+      {((watched==false && course==true) ||(watched==true))? <span> watched video </span> : <Link to={`/courses/${video_id}`}>Quiz</Link>
+                                                  }
+
+
+
+
     </div>
     )
   }

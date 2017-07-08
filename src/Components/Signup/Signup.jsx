@@ -42,7 +42,7 @@ export default class Signup extends Component {
         password: this.refs.password.value
       })
     })
-       this.props.next.props.history.push('/dashboard/false')
+       this.props.next.props.history.push('/dashboard')
       })
 
     } else {
@@ -59,7 +59,7 @@ export default class Signup extends Component {
     })
       .then(() =>{
         console.log('sending admin to dashboard')
-      this.props.next.props.history.push('/dashboard/true')
+      this.props.next.props.history.push('/dashboard')
 
       })
 

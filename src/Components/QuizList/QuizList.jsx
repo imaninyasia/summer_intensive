@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Quiz from '../Quiz/Quiz.jsx';
+import { Link } from 'react-router-dom';
 export default class QuizList extends Component{
   constructor(props){
     super(props)
@@ -47,6 +48,7 @@ componentDidMount() {
                       ):
                     <span> Currently 0 questions </span>
                 }
+
       </div>
       )
 

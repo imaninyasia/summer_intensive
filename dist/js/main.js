@@ -47,7 +47,7 @@
   \**********************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _reactDom=__webpack_require__(/*! react-dom */ 36);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);var _reactRouter=__webpack_require__(/*! react-router */ 195);var _Container=__webpack_require__(/*! ./Routes/Container/Container.jsx */ 222);var _Container2=_interopRequireDefault(_Container);var _Dashboard=__webpack_require__(/*! ./Routes/Dashboard/Dashboard.jsx */ 223);var _Dashboard2=_interopRequireDefault(_Dashboard);var _Interactive_Zone=__webpack_require__(/*! ./Routes/Interactive_Zone/Interactive_Zone.jsx */ 243);var _Interactive_Zone2=_interopRequireDefault(_Interactive_Zone);var _Landing=__webpack_require__(/*! ./Routes/Landing/Landing.jsx */ 244);var _Landing2=_interopRequireDefault(_Landing);var _Whoops=__webpack_require__(/*! ./Components/404/Whoops404.jsx */ 248);var _Whoops2=_interopRequireDefault(_Whoops);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}(0,_reactDom.render)(_react2.default.createElement(_reactRouterDom.BrowserRouter,{history:_reactRouter.browserHistory},_react2.default.createElement('div',null,_react2.default.createElement(_reactRouterDom.Route,{exact:true,path:'/',component:_Landing2.default,value:2}),_react2.default.createElement(_reactRouterDom.Route,{path:'/dashboard/:admin',component:_Dashboard2.default}),_react2.default.createElement(_reactRouterDom.Route,{path:'/courses/:video_id',component:_Interactive_Zone2.default}),_react2.default.createElement(_reactRouterDom.Route,{path:'*',component:_Whoops2.default}))),document.getElementById('root-container'));
+	'use strict';var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _reactDom=__webpack_require__(/*! react-dom */ 36);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);var _reactRouter=__webpack_require__(/*! react-router */ 195);var _Container=__webpack_require__(/*! ./Routes/Container/Container.jsx */ 222);var _Container2=_interopRequireDefault(_Container);var _Dashboard=__webpack_require__(/*! ./Routes/Dashboard/Dashboard.jsx */ 223);var _Dashboard2=_interopRequireDefault(_Dashboard);var _Interactive_Zone=__webpack_require__(/*! ./Routes/Interactive_Zone/Interactive_Zone.jsx */ 250);var _Interactive_Zone2=_interopRequireDefault(_Interactive_Zone);var _Landing=__webpack_require__(/*! ./Routes/Landing/Landing.jsx */ 251);var _Landing2=_interopRequireDefault(_Landing);var _Whoops=__webpack_require__(/*! ./Components/404/Whoops404.jsx */ 255);var _Whoops2=_interopRequireDefault(_Whoops);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}(0,_reactDom.render)(_react2.default.createElement(_reactRouterDom.BrowserRouter,{history:_reactRouter.browserHistory},_react2.default.createElement('div',null,_react2.default.createElement(_reactRouterDom.Route,{exact:true,path:'/',component:_Landing2.default,value:2}),_react2.default.createElement(_reactRouterDom.Route,{path:'/dashboard',component:_Dashboard2.default}),_react2.default.createElement(_reactRouterDom.Route,{path:'/courses/:video_id',component:_Interactive_Zone2.default}),_react2.default.createElement(_reactRouterDom.Route,{path:'*',component:_Whoops2.default}))),document.getElementById('root-container'));
 
 /***/ }),
 /* 1 */
@@ -7725,7 +7725,7 @@
 	return{};}};/**
 	 * Creates a history object that uses the HTML5 history API including
 	 * pushState, replaceState, and the popstate event.
-	 */var createBrowserHistory=function createBrowserHistory(){var props=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};(0,_invariant2.default)(_DOMUtils.canUseDOM,'Browser history needs a DOM');var globalHistory=window.history;var canUseHistory=(0,_DOMUtils.supportsHistory)();var needsHashChangeListener=!(0,_DOMUtils.supportsPopStateOnHashChange)();var _props$forceRefresh=props.forceRefresh,forceRefresh=_props$forceRefresh===undefined?false:_props$forceRefresh,_props$getUserConfirm=props.getUserConfirmation,getUserConfirmation=_props$getUserConfirm===undefined?_DOMUtils.getConfirmation:_props$getUserConfirm,_props$keyLength=props.keyLength,keyLength=_props$keyLength===undefined?6:_props$keyLength;var basename=props.basename?(0,_PathUtils.stripTrailingSlash)((0,_PathUtils.addLeadingSlash)(props.basename)):'';var getDOMLocation=function getDOMLocation(historyState){var _ref=historyState||{},key=_ref.key,state=_ref.state;var _window$location=window.location,pathname=_window$location.pathname,search=_window$location.search,hash=_window$location.hash;var path=pathname+search+hash;if(basename)path=(0,_PathUtils.stripPrefix)(path,basename);return _extends({},(0,_PathUtils.parsePath)(path),{state:state,key:key});};var createKey=function createKey(){return Math.random().toString(36).substr(2,keyLength);};var transitionManager=(0,_createTransitionManager2.default)();var setState=function setState(nextState){_extends(history,nextState);history.length=globalHistory.length;transitionManager.notifyListeners(history.location,history.action);};var handlePopState=function handlePopState(event){// Ignore extraneous popstate events in WebKit.
+	 */var createBrowserHistory=function createBrowserHistory(){var props=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};(0,_invariant2.default)(_DOMUtils.canUseDOM,'Browser history needs a DOM');var globalHistory=window.history;var canUseHistory=(0,_DOMUtils.supportsHistory)();var needsHashChangeListener=!(0,_DOMUtils.supportsPopStateOnHashChange)();var _props$forceRefresh=props.forceRefresh,forceRefresh=_props$forceRefresh===undefined?false:_props$forceRefresh,_props$getUserConfirm=props.getUserConfirmation,getUserConfirmation=_props$getUserConfirm===undefined?_DOMUtils.getConfirmation:_props$getUserConfirm,_props$keyLength=props.keyLength,keyLength=_props$keyLength===undefined?6:_props$keyLength;var basename=props.basename?(0,_PathUtils.stripTrailingSlash)((0,_PathUtils.addLeadingSlash)(props.basename)):'';var getDOMLocation=function getDOMLocation(historyState){var _ref=historyState||{},key=_ref.key,state=_ref.state;var _window$location=window.location,pathname=_window$location.pathname,search=_window$location.search,hash=_window$location.hash;var path=pathname+search+hash;(0,_warning2.default)(!basename||(0,_PathUtils.hasBasename)(path,basename),'You are attempting to use a basename on a page whose URL path does not begin '+'with the basename. Expected path "'+path+'" to begin with "'+basename+'".');if(basename)path=(0,_PathUtils.stripBasename)(path,basename);return(0,_LocationUtils.createLocation)(path,state,key);};var createKey=function createKey(){return Math.random().toString(36).substr(2,keyLength);};var transitionManager=(0,_createTransitionManager2.default)();var setState=function setState(nextState){_extends(history,nextState);history.length=globalHistory.length;transitionManager.notifyListeners(history.location,history.action);};var handlePopState=function handlePopState(event){// Ignore extraneous popstate events in WebKit.
 	if((0,_DOMUtils.isExtraneousPopstateEvent)(event))return;handlePop(getDOMLocation(event.state));};var handleHashChange=function handleHashChange(){handlePop(getDOMLocation(getHistoryState()));};var forceNextPop=false;var handlePop=function handlePop(location){if(forceNextPop){forceNextPop=false;setState();}else{var action='POP';transitionManager.confirmTransitionTo(location,action,getUserConfirmation,function(ok){if(ok){setState({action:action,location:location});}else{revertPop(location);}});}};var revertPop=function revertPop(fromLocation){var toLocation=history.location;// TODO: We could probably make this more reliable by
 	// keeping a list of keys we've seen in sessionStorage.
 	// Instead, we just default to 0 for keys we don't know.
@@ -7792,8 +7792,9 @@
 
 	'use strict';exports.__esModule=true;exports.locationsAreEqual=exports.createLocation=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _resolvePathname=__webpack_require__(/*! resolve-pathname */ 190);var _resolvePathname2=_interopRequireDefault(_resolvePathname);var _valueEqual=__webpack_require__(/*! value-equal */ 191);var _valueEqual2=_interopRequireDefault(_valueEqual);var _PathUtils=__webpack_require__(/*! ./PathUtils */ 192);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var createLocation=exports.createLocation=function createLocation(path,state,key,currentLocation){var location=void 0;if(typeof path==='string'){// Two-arg form: push(path, state)
 	location=(0,_PathUtils.parsePath)(path);location.state=state;}else{// One-arg form: push(location)
-	location=_extends({},path);if(location.pathname===undefined)location.pathname='';if(location.search){if(location.search.charAt(0)!=='?')location.search='?'+location.search;}else{location.search='';}if(location.hash){if(location.hash.charAt(0)!=='#')location.hash='#'+location.hash;}else{location.hash='';}if(state!==undefined&&location.state===undefined)location.state=state;}location.key=key;if(currentLocation){// Resolve incomplete/relative pathname relative to current location.
-	if(!location.pathname){location.pathname=currentLocation.pathname;}else if(location.pathname.charAt(0)!=='/'){location.pathname=(0,_resolvePathname2.default)(location.pathname,currentLocation.pathname);}}return location;};var locationsAreEqual=exports.locationsAreEqual=function locationsAreEqual(a,b){return a.pathname===b.pathname&&a.search===b.search&&a.hash===b.hash&&a.key===b.key&&(0,_valueEqual2.default)(a.state,b.state);};
+	location=_extends({},path);if(location.pathname===undefined)location.pathname='';if(location.search){if(location.search.charAt(0)!=='?')location.search='?'+location.search;}else{location.search='';}if(location.hash){if(location.hash.charAt(0)!=='#')location.hash='#'+location.hash;}else{location.hash='';}if(state!==undefined&&location.state===undefined)location.state=state;}try{location.pathname=decodeURI(location.pathname);}catch(e){if(e instanceof URIError){throw new URIError('Pathname "'+location.pathname+'" could not be decoded. '+'This is likely caused by an invalid percent-encoding.');}else{throw e;}}if(key)location.key=key;if(currentLocation){// Resolve incomplete/relative pathname relative to current location.
+	if(!location.pathname){location.pathname=currentLocation.pathname;}else if(location.pathname.charAt(0)!=='/'){location.pathname=(0,_resolvePathname2.default)(location.pathname,currentLocation.pathname);}}else{// When there is no prior location and pathname is empty, set it to /
+	if(!location.pathname){location.pathname='/';}}return location;};var locationsAreEqual=exports.locationsAreEqual=function locationsAreEqual(a,b){return a.pathname===b.pathname&&a.search===b.search&&a.hash===b.hash&&a.key===b.key&&(0,_valueEqual2.default)(a.state,b.state);};
 
 /***/ }),
 /* 190 */
@@ -7824,7 +7825,7 @@
   \********************************/
 /***/ (function(module, exports) {
 
-	'use strict';exports.__esModule=true;var addLeadingSlash=exports.addLeadingSlash=function addLeadingSlash(path){return path.charAt(0)==='/'?path:'/'+path;};var stripLeadingSlash=exports.stripLeadingSlash=function stripLeadingSlash(path){return path.charAt(0)==='/'?path.substr(1):path;};var stripPrefix=exports.stripPrefix=function stripPrefix(path,prefix){return path.indexOf(prefix)===0?path.substr(prefix.length):path;};var stripTrailingSlash=exports.stripTrailingSlash=function stripTrailingSlash(path){return path.charAt(path.length-1)==='/'?path.slice(0,-1):path;};var parsePath=exports.parsePath=function parsePath(path){var pathname=path||'/';var search='';var hash='';var hashIndex=pathname.indexOf('#');if(hashIndex!==-1){hash=pathname.substr(hashIndex);pathname=pathname.substr(0,hashIndex);}var searchIndex=pathname.indexOf('?');if(searchIndex!==-1){search=pathname.substr(searchIndex);pathname=pathname.substr(0,searchIndex);}pathname=decodeURI(pathname);return{pathname:pathname,search:search==='?'?'':search,hash:hash==='#'?'':hash};};var createPath=exports.createPath=function createPath(location){var pathname=location.pathname,search=location.search,hash=location.hash;var path=encodeURI(pathname||'/');if(search&&search!=='?')path+=search.charAt(0)==='?'?search:'?'+search;if(hash&&hash!=='#')path+=hash.charAt(0)==='#'?hash:'#'+hash;return path;};
+	'use strict';exports.__esModule=true;var addLeadingSlash=exports.addLeadingSlash=function addLeadingSlash(path){return path.charAt(0)==='/'?path:'/'+path;};var stripLeadingSlash=exports.stripLeadingSlash=function stripLeadingSlash(path){return path.charAt(0)==='/'?path.substr(1):path;};var hasBasename=exports.hasBasename=function hasBasename(path,prefix){return new RegExp('^'+prefix+'(\\/|\\?|#|$)','i').test(path);};var stripBasename=exports.stripBasename=function stripBasename(path,prefix){return hasBasename(path,prefix)?path.substr(prefix.length):path;};var stripTrailingSlash=exports.stripTrailingSlash=function stripTrailingSlash(path){return path.charAt(path.length-1)==='/'?path.slice(0,-1):path;};var parsePath=exports.parsePath=function parsePath(path){var pathname=path||'/';var search='';var hash='';var hashIndex=pathname.indexOf('#');if(hashIndex!==-1){hash=pathname.substr(hashIndex);pathname=pathname.substr(0,hashIndex);}var searchIndex=pathname.indexOf('?');if(searchIndex!==-1){search=pathname.substr(searchIndex);pathname=pathname.substr(0,searchIndex);}return{pathname:pathname,search:search==='?'?'':search,hash:hash==='#'?'':hash};};var createPath=exports.createPath=function createPath(location){var pathname=location.pathname,search=location.search,hash=location.hash;var path=pathname||'/';if(search&&search!=='?')path+=search.charAt(0)==='?'?search:'?'+search;if(hash&&hash!=='#')path+=hash.charAt(0)==='#'?hash:'#'+hash;return path;};
 
 /***/ }),
 /* 193 */
@@ -8166,7 +8167,7 @@
 
 	'use strict';exports.__esModule=true;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _warning=__webpack_require__(/*! warning */ 187);var _warning2=_interopRequireDefault(_warning);var _invariant=__webpack_require__(/*! invariant */ 188);var _invariant2=_interopRequireDefault(_invariant);var _LocationUtils=__webpack_require__(/*! ./LocationUtils */ 189);var _PathUtils=__webpack_require__(/*! ./PathUtils */ 192);var _createTransitionManager=__webpack_require__(/*! ./createTransitionManager */ 193);var _createTransitionManager2=_interopRequireDefault(_createTransitionManager);var _DOMUtils=__webpack_require__(/*! ./DOMUtils */ 194);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var HashChangeEvent='hashchange';var HashPathCoders={hashbang:{encodePath:function encodePath(path){return path.charAt(0)==='!'?path:'!/'+(0,_PathUtils.stripLeadingSlash)(path);},decodePath:function decodePath(path){return path.charAt(0)==='!'?path.substr(1):path;}},noslash:{encodePath:_PathUtils.stripLeadingSlash,decodePath:_PathUtils.addLeadingSlash},slash:{encodePath:_PathUtils.addLeadingSlash,decodePath:_PathUtils.addLeadingSlash}};var getHashPath=function getHashPath(){// We can't use window.location.hash here because it's not
 	// consistent across browsers - Firefox will pre-decode it!
-	var href=window.location.href;var hashIndex=href.indexOf('#');return hashIndex===-1?'':href.substring(hashIndex+1);};var pushHashPath=function pushHashPath(path){return window.location.hash=path;};var replaceHashPath=function replaceHashPath(path){var hashIndex=window.location.href.indexOf('#');window.location.replace(window.location.href.slice(0,hashIndex>=0?hashIndex:0)+'#'+path);};var createHashHistory=function createHashHistory(){var props=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};(0,_invariant2.default)(_DOMUtils.canUseDOM,'Hash history needs a DOM');var globalHistory=window.history;var canGoWithoutReload=(0,_DOMUtils.supportsGoWithoutReloadUsingHash)();var _props$getUserConfirm=props.getUserConfirmation,getUserConfirmation=_props$getUserConfirm===undefined?_DOMUtils.getConfirmation:_props$getUserConfirm,_props$hashType=props.hashType,hashType=_props$hashType===undefined?'slash':_props$hashType;var basename=props.basename?(0,_PathUtils.stripTrailingSlash)((0,_PathUtils.addLeadingSlash)(props.basename)):'';var _HashPathCoders$hashT=HashPathCoders[hashType],encodePath=_HashPathCoders$hashT.encodePath,decodePath=_HashPathCoders$hashT.decodePath;var getDOMLocation=function getDOMLocation(){var path=decodePath(getHashPath());if(basename)path=(0,_PathUtils.stripPrefix)(path,basename);return(0,_PathUtils.parsePath)(path);};var transitionManager=(0,_createTransitionManager2.default)();var setState=function setState(nextState){_extends(history,nextState);history.length=globalHistory.length;transitionManager.notifyListeners(history.location,history.action);};var forceNextPop=false;var ignorePath=null;var handleHashChange=function handleHashChange(){var path=getHashPath();var encodedPath=encodePath(path);if(path!==encodedPath){// Ensure we always have a properly-encoded hash.
+	var href=window.location.href;var hashIndex=href.indexOf('#');return hashIndex===-1?'':href.substring(hashIndex+1);};var pushHashPath=function pushHashPath(path){return window.location.hash=path;};var replaceHashPath=function replaceHashPath(path){var hashIndex=window.location.href.indexOf('#');window.location.replace(window.location.href.slice(0,hashIndex>=0?hashIndex:0)+'#'+path);};var createHashHistory=function createHashHistory(){var props=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};(0,_invariant2.default)(_DOMUtils.canUseDOM,'Hash history needs a DOM');var globalHistory=window.history;var canGoWithoutReload=(0,_DOMUtils.supportsGoWithoutReloadUsingHash)();var _props$getUserConfirm=props.getUserConfirmation,getUserConfirmation=_props$getUserConfirm===undefined?_DOMUtils.getConfirmation:_props$getUserConfirm,_props$hashType=props.hashType,hashType=_props$hashType===undefined?'slash':_props$hashType;var basename=props.basename?(0,_PathUtils.stripTrailingSlash)((0,_PathUtils.addLeadingSlash)(props.basename)):'';var _HashPathCoders$hashT=HashPathCoders[hashType],encodePath=_HashPathCoders$hashT.encodePath,decodePath=_HashPathCoders$hashT.decodePath;var getDOMLocation=function getDOMLocation(){var path=decodePath(getHashPath());(0,_warning2.default)(!basename||(0,_PathUtils.hasBasename)(path,basename),'You are attempting to use a basename on a page whose URL path does not begin '+'with the basename. Expected path "'+path+'" to begin with "'+basename+'".');if(basename)path=(0,_PathUtils.stripBasename)(path,basename);return(0,_LocationUtils.createLocation)(path);};var transitionManager=(0,_createTransitionManager2.default)();var setState=function setState(nextState){_extends(history,nextState);history.length=globalHistory.length;transitionManager.notifyListeners(history.location,history.action);};var forceNextPop=false;var ignorePath=null;var handleHashChange=function handleHashChange(){var path=getHashPath();var encodedPath=encodePath(path);if(path!==encodedPath){// Ensure we always have a properly-encoded hash.
 	replaceHashPath(encodedPath);}else{var location=getDOMLocation();var prevLocation=history.location;if(!forceNextPop&&(0,_LocationUtils.locationsAreEqual)(prevLocation,location))return;// A hashchange doesn't always == location change.
 	if(ignorePath===(0,_PathUtils.createPath)(location))return;// Ignore this change; we already setState in push/replace.
 	ignorePath=null;handlePop(location);}};var handlePop=function handlePop(location){if(forceNextPop){forceNextPop=false;setState();}else{var action='POP';transitionManager.confirmTransitionTo(location,action,getUserConfirmation,function(ok){if(ok){setState({action:action,location:location});}else{revertPop(location);}});}};var revertPop=function revertPop(fromLocation){var toLocation=history.location;// TODO: We could probably make this more reliable by
@@ -8319,7 +8320,7 @@
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);var _User=__webpack_require__(/*! ../User/User.jsx */ 227);var _User2=_interopRequireDefault(_User);__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./UserList.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var UserList=function(_Component){_inherits(UserList,_Component);function UserList(props){_classCallCheck(this,UserList);var _this=_possibleConstructorReturn(this,(UserList.__proto__||Object.getPrototypeOf(UserList)).call(this,props));_this.state={users:[],loading:false};return _this;}_createClass(UserList,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;this.setState({loading:true});(0,_isomorphicFetch2.default)('/student/').then(function(response){return response.json();}).then(function(json){return json;}).then(function(users){return _this2.setState({users:users,loading:false});});}},{key:'render',value:function render(){var _state=this.state,users=_state.users,loading=_state.loading;return _react2.default.createElement('div',{className:'user-list'},_react2.default.createElement('h1',null,' The Students '),loading?_react2.default.createElement('span',null,'loading...'):_react2.default.createElement('span',null,users.length,' users'),users.length?users.map(function(user,index){return _react2.default.createElement(_User2.default,{Key:index,name:user.username,email:user.email,thumbnail:user.profile_img});}):_react2.default.createElement('span',null,' Currently 0 Members '));}}]);return UserList;}(_react.Component);exports.default=UserList;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);var _User=__webpack_require__(/*! ../User/User.jsx */ 227);var _User2=_interopRequireDefault(_User);__webpack_require__(/*! ./UserList.css */ 236);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var UserList=function(_Component){_inherits(UserList,_Component);function UserList(props){_classCallCheck(this,UserList);var _this=_possibleConstructorReturn(this,(UserList.__proto__||Object.getPrototypeOf(UserList)).call(this,props));_this.state={users:[],loading:false};return _this;}_createClass(UserList,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;this.setState({loading:true});(0,_isomorphicFetch2.default)('/student/').then(function(response){return response.json();}).then(function(json){return json;}).then(function(users){return _this2.setState({users:users,loading:false});});}},{key:'render',value:function render(){var _state=this.state,users=_state.users,loading=_state.loading;return _react2.default.createElement('div',{className:'user-list'},_react2.default.createElement('h1',null,' The Students '),loading?_react2.default.createElement('span',null,'loading...'):_react2.default.createElement('span',null,users.length,' users'),users.length?users.map(function(user,index){return _react2.default.createElement(_User2.default,{Key:index,name:user.username,email:user.email,thumbnail:user.profile_img});}):_react2.default.createElement('span',null,' Currently 0 Members '));}}]);return UserList;}(_react.Component);exports.default=UserList;
 
 /***/ }),
 /* 225 */
@@ -8353,7 +8354,7 @@
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _shield=__webpack_require__(/*! react-icons/lib/fa/shield */ 228);var _shield2=_interopRequireDefault(_shield);__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./User.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var User=function(_Component){_inherits(User,_Component);function User(){_classCallCheck(this,User);return _possibleConstructorReturn(this,(User.__proto__||Object.getPrototypeOf(User)).apply(this,arguments));}_createClass(User,[{key:'render',value:function render(){var _props=this.props,name=_props.name,thumbnail=_props.thumbnail,email=_props.email,admin=_props.admin;return _react2.default.createElement('div',{className:'user'},_react2.default.createElement('h1',{style:{width:'400px'}},' ',name,' ',admin?_react2.default.createElement(_shield2.default,null):null),_react2.default.createElement('a',{href:'#',style:{width:'400px',display:'inline-block'}},_react2.default.createElement('img',{src:thumbnail,alt:'profile picture'})),_react2.default.createElement('p',{style:{display:'inline-block'}},email));}}]);return User;}(_react.Component);exports.default=User;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _shield=__webpack_require__(/*! react-icons/lib/fa/shield */ 228);var _shield2=_interopRequireDefault(_shield);__webpack_require__(/*! ./User.css */ 235);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var User=function(_Component){_inherits(User,_Component);function User(){_classCallCheck(this,User);return _possibleConstructorReturn(this,(User.__proto__||Object.getPrototypeOf(User)).apply(this,arguments));}_createClass(User,[{key:'render',value:function render(){var _props=this.props,name=_props.name,thumbnail=_props.thumbnail,email=_props.email,admin=_props.admin;return _react2.default.createElement('div',null,name=='admin'?null:_react2.default.createElement('div',{className:'user'},_react2.default.createElement('h1',{style:{width:'400px'}},' ',name,' ',admin?_react2.default.createElement(_shield2.default,null):null),_react2.default.createElement('a',{href:'#',style:{width:'400px',display:'inline-block'}},_react2.default.createElement('img',{src:thumbnail,alt:'profile picture'})),_react2.default.createElement('p',{style:{display:'inline-block'}},email)));}}]);return User;}(_react.Component);exports.default=User;
 
 /***/ }),
 /* 228 */
@@ -8572,15 +8573,31 @@
 	function shim(){invariant(false,'Calling PropTypes validators directly is not supported by the `prop-types` package. '+'Use PropTypes.checkPropTypes() to call them. '+'Read more at http://fb.me/use-check-prop-types');};shim.isRequired=shim;function getShim(){return shim;};var ReactPropTypes={array:shim,bool:shim,func:shim,number:shim,object:shim,string:shim,symbol:shim,any:shim,arrayOf:getShim,element:shim,instanceOf:getShim,node:shim,objectOf:getShim,oneOf:getShim,oneOfType:getShim,shape:getShim};ReactPropTypes.checkPropTypes=emptyFunction;ReactPropTypes.PropTypes=ReactPropTypes;return ReactPropTypes;};
 
 /***/ }),
-/* 235 */,
-/* 236 */,
+/* 235 */
+/*!**************************************!*\
+  !*** ./src/Components/User/User.css ***!
+  \**************************************/
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 236 */
+/*!**********************************************!*\
+  !*** ./src/Components/UserList/UserList.css ***!
+  \**********************************************/
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 237 */
 /*!************************************************!*\
   !*** ./src/Components/VideoList/VideoList.jsx ***!
   \************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _Video=__webpack_require__(/*! ../Video/Video.jsx */ 238);var _Video2=_interopRequireDefault(_Video);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var VideoList=function(_Component){_inherits(VideoList,_Component);function VideoList(props){_classCallCheck(this,VideoList);var _this=_possibleConstructorReturn(this,(VideoList.__proto__||Object.getPrototypeOf(VideoList)).call(this,props));_this.state={Videos:[],unwatched:[],loading:false};return _this;}_createClass(VideoList,[{key:'onLoad',value:function onLoad(data){console.log(data.duration);}},{key:'componentWillMount',value:function componentWillMount(){var _this2=this;this.setState({loading:true});var user=localStorage.getItem('ind');console.log(user,"user local storage");(0,_isomorphicFetch2.default)('/videos/non/'+user).then(function(response){return response.json();}).then(function(json){return json;}).then(function(unwatched){return _this2.setState({unwatched:unwatched,loading:false});});(0,_isomorphicFetch2.default)('/videos/'+user).then(function(response){return response.json();}).then(function(json){return json;}).then(function(videos){return console.log(videos,"videos list"),_this2.setState({videos:videos,loading:false});});}},{key:'render',value:function render(){var _state=this.state,unwatched=_state.unwatched,videos=_state.videos,loading=_state.loading;return _react2.default.createElement('div',null,_react2.default.createElement('h1',null,'Student Video List'),loading?_react2.default.createElement('span',null,'loading...'):_react2.default.createElement('span',{style:{display:'block'}},videos,' videos'),videos?videos.map(function(video,index){if(video.watched==true){return _react2.default.createElement(_Video2.default,{key:video.video_id,video_id:video.video_id,className:'youtube-frame',src:video.source,watched:video.watched,course:false});}else if(video.watched==false){return null;}}):_react2.default.createElement('span',null,' Currently 0 Videos '),unwatched?_react2.default.createElement(_Video2.default,{key:unwatched.video_id,video_id:unwatched.video_id,className:'unwatched',src:unwatched.source,watched:unwatched.watched,course:false,onLoad:this.onLoad}):_react2.default.createElement('span',null,'error loading new quiz video'));}}]);return VideoList;}(_react.Component);exports.default=VideoList;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _Video=__webpack_require__(/*! ../Video/Video.jsx */ 238);var _Video2=_interopRequireDefault(_Video);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);__webpack_require__(/*! ./VideoList.css */ 258);var _UnwatchedVideo=__webpack_require__(/*! ../UnwatchedVideo/UnwatchedVideo.jsx */ 256);var _UnwatchedVideo2=_interopRequireDefault(_UnwatchedVideo);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var VideoList=function(_Component){_inherits(VideoList,_Component);function VideoList(props){_classCallCheck(this,VideoList);var _this=_possibleConstructorReturn(this,(VideoList.__proto__||Object.getPrototypeOf(VideoList)).call(this,props));_this.state={Videos:[],unwatched:[],loading:false};return _this;}_createClass(VideoList,[{key:'onLoad',value:function onLoad(data){console.log(data.duration);}},{key:'componentWillMount',value:function componentWillMount(){var _this2=this;this.setState({loading:true});var user=localStorage.getItem('ind');console.log(user,"user local storage");(0,_isomorphicFetch2.default)('/videos/non/'+user).then(function(response){return response.json();}).then(function(json){return json;}).then(function(unwatched){return console.log(unwatched,'unwatched'),_this2.setState({unwatched:unwatched,loading:false});});this.setState({loading:true});(0,_isomorphicFetch2.default)('/videos/'+user).then(function(response){return response.json();}).then(function(json){return json;}).then(function(videos){return console.log(videos,"videos list"),_this2.setState({videos:videos,loading:false});});}},{key:'render',value:function render(){var _state=this.state,unwatched=_state.unwatched,videos=_state.videos,loading=_state.loading;console.log(videos,'watched');console.log(unwatched.video_id);return _react2.default.createElement('div',null,_react2.default.createElement('h1',null,'Student Video List'),loading?_react2.default.createElement('span',null,'loading...'):_react2.default.createElement('span',{style:{display:'block'}},' videos'),videos?videos.map(function(video,index){console.log(video.video_id);return _react2.default.createElement(_Video2.default,{key:index,video_id:video.video_id,className:'youtube-frame',src:video.source,watched:video.watched,course:false,video_num:video.vimeo_id});}):_react2.default.createElement('span',null,' Currently 0 Videos '),unwatched?_react2.default.createElement(_UnwatchedVideo2.default,{key:unwatched.video_id,video_id:unwatched.video_id,className:'unwatched',src:unwatched.source,watched:unwatched.watched,course:false,onLoad:this.onLoad,video_num:unwatched.vimeo_id}):_react2.default.createElement('span',null,'error loading new quiz video'),unwatched.length?_react2.default.createElement('span',null,'unwatched vids available '):null);}}]);return VideoList;}(_react.Component);exports.default=VideoList;
 
 /***/ }),
 /* 238 */
@@ -8589,7 +8606,8 @@
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);var _QuizList=__webpack_require__(/*! ../QuizList/QuizList.jsx */ 239);var _QuizList2=_interopRequireDefault(_QuizList);__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Video.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));var _reactVimeo=__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-vimeo\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));var _reactVimeo2=_interopRequireDefault(_reactVimeo);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Video=function(_Component){_inherits(Video,_Component);function Video(props){_classCallCheck(this,Video);var _this=_possibleConstructorReturn(this,(Video.__proto__||Object.getPrototypeOf(Video)).call(this,props));_this.state={loading:false};_this.videoFrame=_this.videoFrame.bind(_this);return _this;}_createClass(Video,[{key:'videoFrame',value:function videoFrame(){e.preventDefault();console.log('clicked video frame');}},{key:'loaded',value:function loaded(e){console.log(e);console.log(e.target);}},{key:'componentDidMount',value:function componentDidMount(){window.addEventListener("message",this.handleFrameTasks);}},{key:'componentWillUnmount',value:function componentWillUnmount(){window.removeEventListener("message",this.handleFrameTasks);}},{key:'handleFrameTasks',value:function handleFrameTasks(e){var iframe=document.querySelector('iframe');var player=new _reactVimeo2.default.Player(iframe);player.on('play',function(){console.log('played the video!');});player.getVideoTitle().then(function(title){console.log('title:',title);});console.log(e);console.log(e.data);}},{key:'end',value:function end(e){console.log(e);console.log('the video has ended');}},{key:'render',value:function render(){var _props=this.props,className=_props.className,src=_props.src,allowFullScreen=_props.allowFullScreen,watched=_props.watched,video_id=_props.video_id,course=_props.course;return _react2.default.createElement('div',{className:className},_react2.default.createElement('h1',null,'Video ID:',video_id),_react2.default.createElement('iframe',{onEnded:this.end,onTimeUpdate:this.end,onClick:this.videoFrame,width:'560',height:'315',src:src,allowFullScreen:true}),watched==false&&course==true||watched==true?_react2.default.createElement('span',null,' watched video '):_react2.default.createElement(_reactRouterDom.Link,{to:'/courses/'+video_id},'Quiz'));}}]);return Video;}(_react.Component);exports.default=Video;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);var _QuizList=__webpack_require__(/*! ../QuizList/QuizList.jsx */ 239);var _QuizList2=_interopRequireDefault(_QuizList);__webpack_require__(/*! ./Video.css */ 241);var _reactVimeo=__webpack_require__(/*! react-vimeo */ 242);var _reactVimeo2=_interopRequireDefault(_reactVimeo);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Video=function(_Component){_inherits(Video,_Component);function Video(props){_classCallCheck(this,Video);var _this=_possibleConstructorReturn(this,(Video.__proto__||Object.getPrototypeOf(Video)).call(this,props));_this.state={loading:false,duration:0,currentTime:0};_this.videoFrame=_this.videoFrame.bind(_this);_this.timeupdate=_this.timeupdate.bind(_this);_this.play=_this.play.bind(_this);return _this;}_createClass(Video,[{key:'videoFrame',value:function videoFrame(){e.preventDefault();console.log('clicked video frame');}},{key:'loaded',value:function loaded(e){console.log(e);console.log(e.target);}},{key:'componentDidMount',value:function componentDidMount(){window.addEventListener("message",this.timeupdate);}},{key:'componentWillUnmount',value:function componentWillUnmount(){window.removeEventListener("message",this.handleFrameTasks);}},{key:'handleFrameTasks',value:function handleFrameTasks(e){console.log(e// console.log(e.data)
+	);}},{key:'timeupdate',value:function timeupdate(e){var duration=void 0;var currentTime=void 0;console.log(e.data);console.log(duration);if(e.data.event="timeupdate"){this.setState({duration:e.data.data.duration,currentTime:e.data.data.seconds});}if(this.state.currentTime<this.state.duration&&this.state.currentTime>this.state.duration-3){console.log('ended');var vid_id=this.props.video_id;var user=localStorage.getItem('ind');(0,_isomorphicFetch2.default)('/videos/update/'+vid_id,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({watched:true,user:user})});}}},{key:'play',value:function play(e){this.setState({duration:e.data.data.duration});console.log('the video is playing');}},{key:'render',value:function render(){var _props=this.props,className=_props.className,src=_props.src,allowFullScreen=_props.allowFullScreen,watched=_props.watched,video_id=_props.video_id,course=_props.course,video_num=_props.video_num;console.log(this.state.duration);console.log(this.state.currentTime);return _react2.default.createElement('div',{className:className,style:{display:'inline-block'}},course==true?_react2.default.createElement(_reactRouterDom.Link,{to:'/dashboard'},'Return to Dashboard'):null,_react2.default.createElement('h1',null,'Video ID:',video_id),_react2.default.createElement(_reactVimeo2.default,{onPlay:this.play,className:'vimeo_vid',videoId:video_num}),',',watched==false&&course==true||watched==true?_react2.default.createElement('span',null,' watched video '):_react2.default.createElement(_reactRouterDom.Link,{to:'/courses/'+video_id},'Quiz'));}}]);return Video;}(_react.Component);exports.default=Video;
 
 /***/ }),
 /* 239 */
@@ -8598,7 +8616,7 @@
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _Quiz=__webpack_require__(/*! ../Quiz/Quiz.jsx */ 240);var _Quiz2=_interopRequireDefault(_Quiz);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var QuizList=function(_Component){_inherits(QuizList,_Component);function QuizList(props){_classCallCheck(this,QuizList);var _this=_possibleConstructorReturn(this,(QuizList.__proto__||Object.getPrototypeOf(QuizList)).call(this,props));_this.state={questions:[],loading:false};return _this;}_createClass(QuizList,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;var video_id=this.props.video_id;video_id.toString();this.setState({loading:true});fetch("/questions/"+video_id).then(function(response){return response.json();}).then(function(json){return json;}).then(function(questions){return _this2.setState({questions:questions,loading:false});});}},{key:'render',value:function render(){var _state=this.state,questions=_state.questions,loading=_state.loading;var video_id=this.props.video_id;return _react2.default.createElement('div',null,loading?_react2.default.createElement('span',null,'loading...'):_react2.default.createElement('span',null,questions.length,' questions'),questions.length?questions.map(function(question,index){return _react2.default.createElement(_Quiz2.default,{key:question.question_id,question_id:question.question_id,question:question.question,video_id:question.video_id,choice1:question.choice_1,choice2:question.choice_2,choice3:question.choice_3,ans_short:question.answer_short});}):_react2.default.createElement('span',null,' Currently 0 questions '));}}]);return QuizList;}(_react.Component);exports.default=QuizList;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _Quiz=__webpack_require__(/*! ../Quiz/Quiz.jsx */ 240);var _Quiz2=_interopRequireDefault(_Quiz);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var QuizList=function(_Component){_inherits(QuizList,_Component);function QuizList(props){_classCallCheck(this,QuizList);var _this=_possibleConstructorReturn(this,(QuizList.__proto__||Object.getPrototypeOf(QuizList)).call(this,props));_this.state={questions:[],loading:false};return _this;}_createClass(QuizList,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;var video_id=this.props.video_id;video_id.toString();this.setState({loading:true});fetch("/questions/"+video_id).then(function(response){return response.json();}).then(function(json){return json;}).then(function(questions){return _this2.setState({questions:questions,loading:false});});}},{key:'render',value:function render(){var _state=this.state,questions=_state.questions,loading=_state.loading;var video_id=this.props.video_id;return _react2.default.createElement('div',null,loading?_react2.default.createElement('span',null,'loading...'):_react2.default.createElement('span',null,questions.length,' questions'),questions.length?questions.map(function(question,index){return _react2.default.createElement(_Quiz2.default,{key:question.question_id,question_id:question.question_id,question:question.question,video_id:question.video_id,choice1:question.choice_1,choice2:question.choice_2,choice3:question.choice_3,ans_short:question.answer_short});}):_react2.default.createElement('span',null,' Currently 0 questions '));}}]);return QuizList;}(_react.Component);exports.default=QuizList;
 
 /***/ }),
 /* 240 */
@@ -8607,30 +8625,692 @@
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Quiz=function(_Component){_inherits(Quiz,_Component);function Quiz(props){_classCallCheck(this,Quiz);var _this=_possibleConstructorReturn(this,(Quiz.__proto__||Object.getPrototypeOf(Quiz)).call(this,props));_this.state={selectedOption:""};_this.submit=_this.submit.bind(_this);_this.handle=_this.handle.bind(_this);return _this;}_createClass(Quiz,[{key:"submit",value:function submit(e){var _this2=this;e.preventDefault();console.log(e.target.value);console.log(this.state.selectedOption);var video_id=this.props.video_id;var q_id=this.props.question_id;this.setState({loading:true});fetch("/questions/post_q"+q_id+user_id+user_answer).then(function(response){return response.json();}).then(function(json){return json;}).then(function(questions){return _this2.setState({questions:questions,loading:false});});console.log('You have selected:',this.state.selectedOption);}},{key:"handleOptionChange",value:function handleOptionChange(e){console.log(e.target.value);this.setState({selectedOption:e.target.value});}},{key:"handle",value:function handle(e){console.log(e.target.value);}},{key:"render",value:function render(){var _props=this.props,question=_props.question,ans_short=_props.ans_short,question_id=_props.question_id,video_id=_props.video_id,choice1=_props.choice1,choice2=_props.choice2,choice3=_props.choice3;return _react2.default.createElement("div",null,_react2.default.createElement("form",{onClick:this.handle,onSubmit:this.submit},_react2.default.createElement("label",null,question),ans_short==null?_react2.default.createElement("div",null,_react2.default.createElement("input",{type:"text",name:question_id})):_react2.default.createElement("div",null,_react2.default.createElement("input",{type:"radio",name:question_id,value:choice1})," ",choice1,_react2.default.createElement("br",null),_react2.default.createElement("input",{type:"radio",name:question_id,value:choice2})," ",choice2,_react2.default.createElement("br",null),_react2.default.createElement("input",{type:"radio",name:question_id,value:choice3})," ",choice3,_react2.default.createElement("br",null)),_react2.default.createElement("input",{type:"submit",value:"Submit"})));}}]);return Quiz;}(_react.Component);exports.default=Quiz;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Quiz=function(_Component){_inherits(Quiz,_Component);function Quiz(props){_classCallCheck(this,Quiz);var _this=_possibleConstructorReturn(this,(Quiz.__proto__||Object.getPrototypeOf(Quiz)).call(this,props));_this.state={selectedOption:"",loading:false,visible:true};_this.submit=_this.submit.bind(_this);_this.handleOptionChange=_this.handleOptionChange.bind(_this);return _this;}_createClass(Quiz,[{key:'submit',value:function submit(e){e.preventDefault();console.log(e.target);console.log(e.target.value,'help');console.log(this.state.selectedOption);var video_id=this.props.video_id;var q_id=this.props.question_id;var option=e.target;this.setState({loading:true,visible:false}// fetch("/questions/post_q"+q_id+"/"+user_id+"/"+user_answer, {
+	//   method: 'POST',
+	//   headers: {
+	//     'content-type': 'application/json',
+	//   },
+	//   body: JSON.stringify({
+	//     answered: true,
+	//   })
+	// })
+	// .then(response => response.json())
+	// .then(json => json)
+	// .then(returned =>
+	//   console.log(returned)
+	//   )
+	);console.log('You have selected:',this.state.selectedOption);}},{key:'handleOptionChange',value:function handleOptionChange(e){console.log(e.target);console.log(e.target.className);this.setState({selectedOption:e.target.value});}},{key:'handle',value:function handle(e){// this.setState({
+	//   selectedOption: e.target.value
+	// });
+	// console.log(e.target.value)
+	// console.log(this.state.selectedOption)
+	}},{key:'render',value:function render(){var _props=this.props,question=_props.question,ans_short=_props.ans_short,question_id=_props.question_id,video_id=_props.video_id,choice1=_props.choice1,choice2=_props.choice2,choice3=_props.choice3;var _state=this.state,class1=_state.class1,class2=_state.class2,class3=_state.class3,class4=_state.class4;return _react2.default.createElement('div',null,this.state.visible==true?_react2.default.createElement('div',null,_react2.default.createElement('form',{onClick:this.handle,onSubmit:this.submit},_react2.default.createElement('label',null,question),ans_short==null?_react2.default.createElement('div',null,_react2.default.createElement('input',{type:'text',name:question_id})):_react2.default.createElement('div',null,_react2.default.createElement('input',{type:'radio',onChange:this.handleOptionChange,name:question_id,value:choice1}),' ',choice1,_react2.default.createElement('br',null),_react2.default.createElement('input',{type:'radio',onChange:this.handleOptionChange,name:question_id,value:choice2}),' ',choice2,_react2.default.createElement('br',null),_react2.default.createElement('input',{type:'radio',onChange:this.handleOptionChange,name:question_id,value:choice3}),' ',choice3,_react2.default.createElement('br',null)),_react2.default.createElement('input',{type:'submit',value:'Submit'}))):null);}}]);return Quiz;}(_react.Component);exports.default=Quiz;
 
 /***/ }),
-/* 241 */,
-/* 242 */,
+/* 241 */
+/*!****************************************!*\
+  !*** ./src/Components/Video/Video.css ***!
+  \****************************************/
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 242 */
+/*!************************************!*\
+  !*** ./~/react-vimeo/lib/Vimeo.js ***!
+  \************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _keymirror = __webpack_require__(/*! keymirror */ 243);
+	
+	var _keymirror2 = _interopRequireDefault(_keymirror);
+	
+	var _jsonp = __webpack_require__(/*! jsonp */ 244);
+	
+	var _jsonp2 = _interopRequireDefault(_jsonp);
+	
+	var _debug = __webpack_require__(/*! debug */ 245);
+	
+	var _debug2 = _interopRequireDefault(_debug);
+	
+	var _PlayButton = __webpack_require__(/*! ./Play-Button */ 248);
+	
+	var _PlayButton2 = _interopRequireDefault(_PlayButton);
+	
+	var _Spinner = __webpack_require__(/*! ./Spinner */ 249);
+	
+	var _Spinner2 = _interopRequireDefault(_Spinner);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	var debug = (0, _debug2.default)('vimeo:player');
+	var noop = function noop() {};
+	var playerEvents = (0, _keymirror2.default)({
+	  cueChange: null,
+	  ended: null,
+	  loaded: null,
+	  pause: null,
+	  play: null,
+	  progress: null,
+	  seeked: null,
+	  textTrackChange: null,
+	  timeUpdate: null,
+	  volumeChange: null
+	});
+	
+	function capitalize() {
+	  var str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+	
+	  return str.charAt(0).toUpperCase() + str.substring(1);
+	}
+	
+	function getFuncForEvent(event, props) {
+	  return props['on' + capitalize(event)] || function () {};
+	}
+	
+	function post(method, value, player, playerOrigin) {
+	  try {
+	    player.contentWindow.postMessage({ method: method, value: value }, playerOrigin);
+	  } catch (err) {
+	    return err;
+	  }
+	  return null;
+	}
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'Vimeo',
+	
+	  propTypes: {
+	    autoplay: _react.PropTypes.bool,
+	    className: _react.PropTypes.string,
+	    loading: _react.PropTypes.element,
+	    playButton: _react.PropTypes.node,
+	    playerOptions: _react.PropTypes.object,
+	    videoId: _react.PropTypes.string.isRequired,
+	
+	    // event callbacks
+	    onCueChange: _react.PropTypes.func,
+	    onEnded: _react.PropTypes.func,
+	    onError: _react.PropTypes.func,
+	    onLoaded: _react.PropTypes.func,
+	    onPause: _react.PropTypes.func,
+	    onPlay: _react.PropTypes.func,
+	    onProgress: _react.PropTypes.func,
+	    onReady: _react.PropTypes.func,
+	    onSeeked: _react.PropTypes.func,
+	    onTextTrackChanged: _react.PropTypes.func,
+	    onTimeUpdate: _react.PropTypes.func,
+	    onVolumeChange: _react.PropTypes.func
+	  },
+	
+	  getDefaultProps: function getDefaultProps() {
+	    var defaults = Object.keys(playerEvents).concat(['ready']).reduce(function (defaults, event) {
+	      defaults['on' + capitalize(event)] = noop;
+	      return defaults;
+	    }, {});
+	
+	    defaults.className = 'vimeo';
+	    defaults.playerOptions = { autoplay: 1 };
+	    defaults.autoplay = false;
+	    return defaults;
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      imageLoaded: false,
+	      playerOrigin: '*',
+	      showingVideo: this.props.autoplay,
+	      thumb: null
+	    };
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (nextProps.videoId !== this.props.videoId) {
+	      this.setState({
+	        thumb: null,
+	        imageLoaded: false,
+	        showingVideo: false
+	      });
+	    }
+	  },
+	  componentDidMount: function componentDidMount() {
+	    this.fetchVimeoData();
+	  },
+	  componentDidUpdate: function componentDidUpdate() {
+	    this.fetchVimeoData();
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    var _context;
+	
+	    var removeEventListener = typeof window !== 'undefined' ? (_context = window).removeEventListener.bind(_context) : noop;
+	
+	    removeEventListener('message', this.onMessage);
+	  },
+	  addMessageListener: function addMessageListener() {
+	    var _context2;
+	
+	    var addEventListener = typeof window !== 'undefined' ? (_context2 = window).addEventListener.bind(_context2) : noop;
+	
+	    addEventListener('message', this.onMessage);
+	  },
+	  onError: function onError(err) {
+	    if (this.props.onError) {
+	      this.props.onError(err);
+	    }
+	    throw err;
+	  },
+	  onMessage: function onMessage(_ref) {
+	    var origin = _ref.origin,
+	        data = _ref.data;
+	    var onReady = this.props.onReady;
+	    var playerOrigin = this.state.playerOrigin;
+	
+	    if (playerOrigin === '*') {
+	      this.setState({
+	        playerOrigin: origin
+	      });
+	    }
+	
+	    // Handle messages from the vimeo player only
+	    if (!/^https?:\/\/player.vimeo.com/.test(origin)) {
+	      return false;
+	    }
+	
+	    if (typeof data === 'string') {
+	      try {
+	        data = JSON.parse(data);
+	      } catch (err) {
+	        debug('error parsing message', err);
+	        data = { event: '' };
+	      }
+	    }
+	
+	    if (data.event === 'ready') {
+	      var player = this.refs.player;
+	
+	      debug('player ready');
+	      this.onReady(player, playerOrigin === '*' ? origin : playerOrigin);
+	      return onReady(data);
+	    }
+	    if (!data.event) {
+	      // we get messages when the first event callbacks are added to the frame
+	      return;
+	    }
+	    debug('firing event: ', data.event);
+	    getFuncForEvent(data.event, this.props)(data);
+	  },
+	  onReady: function onReady(player, playerOrigin) {
+	    var _this = this;
+	
+	    Object.keys(playerEvents).forEach(function (event) {
+	      var err = post('addEventListener', event.toLowerCase(), player, playerOrigin);
+	      if (err) {
+	        _this.onError(err);
+	      }
+	    });
+	  },
+	  playVideo: function playVideo(e) {
+	    e.preventDefault();
+	    this.setState({ showingVideo: true });
+	  },
+	  getIframeUrl: function getIframeUrl() {
+	    var videoId = this.props.videoId;
+	
+	    var query = this.getIframeUrlQuery();
+	    return '//player.vimeo.com/video/' + videoId + '?' + query;
+	  },
+	  getIframeUrlQuery: function getIframeUrlQuery() {
+	    var _this2 = this;
+	
+	    var str = [];
+	    Object.keys(this.props.playerOptions).forEach(function (key) {
+	      str.push(key + '=' + _this2.props.playerOptions[key]);
+	    });
+	
+	    return str.join('&');
+	  },
+	  fetchVimeoData: function fetchVimeoData() {
+	    var _this3 = this;
+	
+	    if (this.state.imageLoaded) {
+	      return;
+	    }
+	    var id = this.props.videoId;
+	
+	    (0, _jsonp2.default)('//vimeo.com/api/v2/video/' + id + '.json', {
+	      prefix: 'vimeo'
+	    }, function (err, res) {
+	      if (err) {
+	        debug('jsonp err: ', err.message);
+	        _this3.onError(err);
+	      }
+	      debug('jsonp response', res);
+	      _this3.setState({
+	        thumb: res[0].thumbnail_large,
+	        imageLoaded: true
+	      });
+	    });
+	  },
+	  renderImage: function renderImage() {
+	    if (this.state.showingVideo || !this.state.imageLoaded) {
+	      return;
+	    }
+	
+	    var style = {
+	      backgroundImage: 'url(' + this.state.thumb + ')',
+	      display: !this.state.showingVideo ? 'block' : 'none',
+	      height: '100%',
+	      width: '100%'
+	    };
+	
+	    var playButton = this.props.playButton ? (0, _react.cloneElement)(this.props.playButton, { onClick: this.playVideo }) : _react2.default.createElement(_PlayButton2.default, { onClick: this.playVideo });
+	
+	    return _react2.default.createElement('div', {
+	      className: 'vimeo-image',
+	      style: style }, playButton);
+	  },
+	  renderIframe: function renderIframe() {
+	    if (!this.state.showingVideo) {
+	      return;
+	    }
+	
+	    this.addMessageListener();
+	
+	    var embedVideoStyle = {
+	      display: this.state.showingVideo ? 'block' : 'none',
+	      height: '100%',
+	      width: '100%'
+	    };
+	
+	    return _react2.default.createElement('div', {
+	      className: 'vimeo-embed',
+	      style: embedVideoStyle }, _react2.default.createElement('iframe', {
+	      frameBorder: '0',
+	      ref: 'player',
+	      src: this.getIframeUrl() }));
+	  },
+	  renderLoading: function renderLoading(imageLoaded, loadingElement) {
+	    if (imageLoaded) {
+	      return;
+	    }
+	    if (loadingElement) {
+	      return loadingElement;
+	    }
+	    return _react2.default.createElement(_Spinner2.default, null);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement('div', { className: this.props.className }, this.renderLoading(this.state.imageLoaded, this.props.loading), this.renderImage(), this.renderIframe());
+	  }
+	});
+	module.exports = exports['default'];
+
+/***/ }),
 /* 243 */
+/*!******************************!*\
+  !*** ./~/keymirror/index.js ***!
+  \******************************/
+/***/ (function(module, exports) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 */"use strict";/**
+	 * Constructs an enumeration with keys equal to their value.
+	 *
+	 * For example:
+	 *
+	 *   var COLORS = keyMirror({blue: null, red: null});
+	 *   var myColor = COLORS.blue;
+	 *   var isColorValid = !!COLORS[myColor];
+	 *
+	 * The last line could not be performed if the values of the generated enum were
+	 * not equal to their keys.
+	 *
+	 *   Input:  {key1: val1, key2: val2}
+	 *   Output: {key1: key1, key2: key2}
+	 *
+	 * @param {object} obj
+	 * @return {object}
+	 */var keyMirror=function keyMirror(obj){var ret={};var key;if(!(obj instanceof Object&&!Array.isArray(obj))){throw new Error('keyMirror(...): Argument must be an object.');}for(key in obj){if(!obj.hasOwnProperty(key)){continue;}ret[key]=key;}return ret;};module.exports=keyMirror;
+
+/***/ }),
+/* 244 */
+/*!**************************!*\
+  !*** ./~/jsonp/index.js ***!
+  \**************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';/**
+	 * Module dependencies
+	 */var debug=__webpack_require__(/*! debug */ 245)('jsonp');/**
+	 * Module exports.
+	 */module.exports=jsonp;/**
+	 * Callback index.
+	 */var count=0;/**
+	 * Noop function.
+	 */function noop(){}/**
+	 * JSONP handler
+	 *
+	 * Options:
+	 *  - param {String} qs parameter (`callback`)
+	 *  - prefix {String} qs parameter (`__jp`)
+	 *  - name {String} qs parameter (`prefix` + incr)
+	 *  - timeout {Number} how long after a timeout error is emitted (`60000`)
+	 *
+	 * @param {String} url
+	 * @param {Object|Function} optional options / callback
+	 * @param {Function} optional callback
+	 */function jsonp(url,opts,fn){if('function'==typeof opts){fn=opts;opts={};}if(!opts)opts={};var prefix=opts.prefix||'__jp';// use the callback name that was passed if one was provided.
+	// otherwise generate a unique name by incrementing our counter.
+	var id=opts.name||prefix+count++;var param=opts.param||'callback';var timeout=null!=opts.timeout?opts.timeout:60000;var enc=encodeURIComponent;var target=document.getElementsByTagName('script')[0]||document.head;var script;var timer;if(timeout){timer=setTimeout(function(){cleanup();if(fn)fn(new Error('Timeout'));},timeout);}function cleanup(){if(script.parentNode)script.parentNode.removeChild(script);window[id]=noop;if(timer)clearTimeout(timer);}function cancel(){if(window[id]){cleanup();}}window[id]=function(data){debug('jsonp got',data);cleanup();if(fn)fn(null,data);};// add qs component
+	url+=(~url.indexOf('?')?'&':'?')+param+'='+enc(id);url=url.replace('?&','?');debug('jsonp req "%s"',url);// create script
+	script=document.createElement('script');script.src=url;target.parentNode.insertBefore(script,target);return cancel;}
+
+/***/ }),
+/* 245 */
+/*!********************************!*\
+  !*** ./~/debug/src/browser.js ***!
+  \********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};/**
+	 * This is the web browser implementation of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */exports=module.exports=__webpack_require__(/*! ./debug */ 246);exports.log=log;exports.formatArgs=formatArgs;exports.save=save;exports.load=load;exports.useColors=useColors;exports.storage='undefined'!=typeof chrome&&'undefined'!=typeof chrome.storage?chrome.storage.local:localstorage();/**
+	 * Colors.
+	 */exports.colors=['lightseagreen','forestgreen','goldenrod','dodgerblue','darkorchid','crimson'];/**
+	 * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+	 * and the Firebug extension (any Firefox version) are known
+	 * to support "%c" CSS customizations.
+	 *
+	 * TODO: add a `localStorage` variable to explicitly enable/disable colors
+	 */function useColors(){// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if(typeof window!=='undefined'&&window.process&&window.process.type==='renderer'){return true;}// is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return typeof document!=='undefined'&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||// is firebug? http://stackoverflow.com/a/398120/376773
+	typeof window!=='undefined'&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||// is firefox >= v31?
+	// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+	typeof navigator!=='undefined'&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||// double check webkit in userAgent just in case we are in a worker
+	typeof navigator!=='undefined'&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);}/**
+	 * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+	 */exports.formatters.j=function(v){try{return JSON.stringify(v);}catch(err){return'[UnexpectedJSONParseError]: '+err.message;}};/**
+	 * Colorize log arguments if enabled.
+	 *
+	 * @api public
+	 */function formatArgs(args){var useColors=this.useColors;args[0]=(useColors?'%c':'')+this.namespace+(useColors?' %c':' ')+args[0]+(useColors?'%c ':' ')+'+'+exports.humanize(this.diff);if(!useColors)return;var c='color: '+this.color;args.splice(1,0,c,'color: inherit'// the final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	);var index=0;var lastC=0;args[0].replace(/%[a-zA-Z%]/g,function(match){if('%%'===match)return;index++;if('%c'===match){// we only are interested in the *last* %c
+	// (the user may have provided their own)
+	lastC=index;}});args.splice(lastC,0,c);}/**
+	 * Invokes `console.log()` when available.
+	 * No-op when `console.log` is not a "function".
+	 *
+	 * @api public
+	 */function log(){// this hackery is required for IE8/9, where
+	// the `console.log` function doesn't have 'apply'
+	return'object'===(typeof console==='undefined'?'undefined':_typeof(console))&&console.log&&Function.prototype.apply.call(console.log,console,arguments);}/**
+	 * Save `namespaces`.
+	 *
+	 * @param {String} namespaces
+	 * @api private
+	 */function save(namespaces){try{if(null==namespaces){exports.storage.removeItem('debug');}else{exports.storage.debug=namespaces;}}catch(e){}}/**
+	 * Load `namespaces`.
+	 *
+	 * @return {String} returns the previously persisted debug modes
+	 * @api private
+	 */function load(){var r;try{r=exports.storage.debug;}catch(e){}// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if(!r&&typeof process!=='undefined'&&'env'in process){r=process.env.DEBUG;}return r;}/**
+	 * Enable namespaces listed in `localStorage.debug` initially.
+	 */exports.enable(load());/**
+	 * Localstorage attempts to return the localstorage.
+	 *
+	 * This is necessary because safari throws
+	 * when a user disables cookies/localstorage
+	 * and you attempt to access it.
+	 *
+	 * @return {LocalStorage}
+	 * @api private
+	 */function localstorage(){try{return window.localStorage;}catch(e){}}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
+
+/***/ }),
+/* 246 */
+/*!******************************!*\
+  !*** ./~/debug/src/debug.js ***!
+  \******************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';/**
+	 * This is the common logic for both the Node.js and web browser
+	 * implementations of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */exports=module.exports=createDebug.debug=createDebug['default']=createDebug;exports.coerce=coerce;exports.disable=disable;exports.enable=enable;exports.enabled=enabled;exports.humanize=__webpack_require__(/*! ms */ 247);/**
+	 * The currently active debug mode names, and names to skip.
+	 */exports.names=[];exports.skips=[];/**
+	 * Map of special "%n" handling functions, for the debug "format" argument.
+	 *
+	 * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	 */exports.formatters={};/**
+	 * Previous log timestamp.
+	 */var prevTime;/**
+	 * Select a color.
+	 * @param {String} namespace
+	 * @return {Number}
+	 * @api private
+	 */function selectColor(namespace){var hash=0,i;for(i in namespace){hash=(hash<<5)-hash+namespace.charCodeAt(i);hash|=0;// Convert to 32bit integer
+	}return exports.colors[Math.abs(hash)%exports.colors.length];}/**
+	 * Create a debugger with the given `namespace`.
+	 *
+	 * @param {String} namespace
+	 * @return {Function}
+	 * @api public
+	 */function createDebug(namespace){function debug(){// disabled?
+	if(!debug.enabled)return;var self=debug;// set `diff` timestamp
+	var curr=+new Date();var ms=curr-(prevTime||curr);self.diff=ms;self.prev=prevTime;self.curr=curr;prevTime=curr;// turn the `arguments` into a proper Array
+	var args=new Array(arguments.length);for(var i=0;i<args.length;i++){args[i]=arguments[i];}args[0]=exports.coerce(args[0]);if('string'!==typeof args[0]){// anything else let's inspect with %O
+	args.unshift('%O');}// apply any `formatters` transformations
+	var index=0;args[0]=args[0].replace(/%([a-zA-Z%])/g,function(match,format){// if we encounter an escaped % then don't increase the array index
+	if(match==='%%')return match;index++;var formatter=exports.formatters[format];if('function'===typeof formatter){var val=args[index];match=formatter.call(self,val);// now we need to remove `args[index]` since it's inlined in the `format`
+	args.splice(index,1);index--;}return match;});// apply env-specific formatting (colors, etc.)
+	exports.formatArgs.call(self,args);var logFn=debug.log||exports.log||console.log.bind(console);logFn.apply(self,args);}debug.namespace=namespace;debug.enabled=exports.enabled(namespace);debug.useColors=exports.useColors();debug.color=selectColor(namespace);// env-specific initialization logic for debug instances
+	if('function'===typeof exports.init){exports.init(debug);}return debug;}/**
+	 * Enables a debug mode by namespaces. This can include modes
+	 * separated by a colon and wildcards.
+	 *
+	 * @param {String} namespaces
+	 * @api public
+	 */function enable(namespaces){exports.save(namespaces);exports.names=[];exports.skips=[];var split=(typeof namespaces==='string'?namespaces:'').split(/[\s,]+/);var len=split.length;for(var i=0;i<len;i++){if(!split[i])continue;// ignore empty strings
+	namespaces=split[i].replace(/\*/g,'.*?');if(namespaces[0]==='-'){exports.skips.push(new RegExp('^'+namespaces.substr(1)+'$'));}else{exports.names.push(new RegExp('^'+namespaces+'$'));}}}/**
+	 * Disable debug output.
+	 *
+	 * @api public
+	 */function disable(){exports.enable('');}/**
+	 * Returns true if the given mode name is enabled, false otherwise.
+	 *
+	 * @param {String} name
+	 * @return {Boolean}
+	 * @api public
+	 */function enabled(name){var i,len;for(i=0,len=exports.skips.length;i<len;i++){if(exports.skips[i].test(name)){return false;}}for(i=0,len=exports.names.length;i<len;i++){if(exports.names[i].test(name)){return true;}}return false;}/**
+	 * Coerce `val`.
+	 *
+	 * @param {Mixed} val
+	 * @return {Mixed}
+	 * @api private
+	 */function coerce(val){if(val instanceof Error)return val.stack||val.message;return val;}
+
+/***/ }),
+/* 247 */
+/*!***********************!*\
+  !*** ./~/ms/index.js ***!
+  \***********************/
+/***/ (function(module, exports) {
+
+	'use strict';var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};/**
+	 * Helpers.
+	 */var s=1000;var m=s*60;var h=m*60;var d=h*24;var y=d*365.25;/**
+	 * Parse or format the given `val`.
+	 *
+	 * Options:
+	 *
+	 *  - `long` verbose formatting [false]
+	 *
+	 * @param {String|Number} val
+	 * @param {Object} [options]
+	 * @throws {Error} throw an error if val is not a non-empty string or a number
+	 * @return {String|Number}
+	 * @api public
+	 */module.exports=function(val,options){options=options||{};var type=typeof val==='undefined'?'undefined':_typeof(val);if(type==='string'&&val.length>0){return parse(val);}else if(type==='number'&&isNaN(val)===false){return options.long?fmtLong(val):fmtShort(val);}throw new Error('val is not a non-empty string or a valid number. val='+JSON.stringify(val));};/**
+	 * Parse the given `str` and return milliseconds.
+	 *
+	 * @param {String} str
+	 * @return {Number}
+	 * @api private
+	 */function parse(str){str=String(str);if(str.length>100){return;}var match=/^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);if(!match){return;}var n=parseFloat(match[1]);var type=(match[2]||'ms').toLowerCase();switch(type){case'years':case'year':case'yrs':case'yr':case'y':return n*y;case'days':case'day':case'd':return n*d;case'hours':case'hour':case'hrs':case'hr':case'h':return n*h;case'minutes':case'minute':case'mins':case'min':case'm':return n*m;case'seconds':case'second':case'secs':case'sec':case's':return n*s;case'milliseconds':case'millisecond':case'msecs':case'msec':case'ms':return n;default:return undefined;}}/**
+	 * Short format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */function fmtShort(ms){if(ms>=d){return Math.round(ms/d)+'d';}if(ms>=h){return Math.round(ms/h)+'h';}if(ms>=m){return Math.round(ms/m)+'m';}if(ms>=s){return Math.round(ms/s)+'s';}return ms+'ms';}/**
+	 * Long format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */function fmtLong(ms){return plural(ms,d,'day')||plural(ms,h,'hour')||plural(ms,m,'minute')||plural(ms,s,'second')||ms+' ms';}/**
+	 * Pluralization helper.
+	 */function plural(ms,n,name){if(ms<n){return;}if(ms<n*1.5){return Math.floor(ms/n)+' '+name;}return Math.ceil(ms/n)+' '+name+'s';}
+
+/***/ }),
+/* 248 */
+/*!******************************************!*\
+  !*** ./~/react-vimeo/lib/Play-Button.js ***!
+  \******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'PlayButton',
+	
+	  propTypes: {
+	    onClick: _react2.default.PropTypes.func
+	  },
+	
+	  render: function render() {
+	    return _react2.default.createElement('button', {
+	      className: 'vimeo-play-button',
+	      onClick: this.props.onClick,
+	      type: 'button' }, _react2.default.createElement('svg', {
+	      version: '1.1',
+	      viewBox: '0 0 100 100',
+	      xmlns: 'http://www.w3.org/2000/svg' }, _react2.default.createElement('path', { d: 'M79.674,53.719c2.59-2.046,2.59-5.392,0-7.437L22.566,1.053C19.977-0.993,18,0.035,18,3.335v93.331c0,3.3,1.977,4.326,4.566,2.281L79.674,53.719z' })));
+	  }
+	}); /* eslint-disable max-len */
+	
+	module.exports = exports['default'];
+
+/***/ }),
+/* 249 */
+/*!**************************************!*\
+  !*** ./~/react-vimeo/lib/Spinner.js ***!
+  \**************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	/*
+	 * React component for Vimeo Loading Spinner created and rendered.
+	 * SVG Path is used for creating the spinner.
+	 */
+	exports.default = _react2.default.createClass({
+	  displayName: 'Spinner',
+	
+	  render: function render() {
+	    return _react2.default.createElement('div', { className: 'vimeo-loading' }, _react2.default.createElement('svg', {
+	      height: '32',
+	      viewBox: '0 0 32 32',
+	      width: '32',
+	      xmlns: 'http://www.w3.org/2000/svg' }, _react2.default.createElement('path', {
+	      d: 'M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4',
+	      opacity: '.25' }), _react2.default.createElement('path', { d: 'M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z' })));
+	  }
+	}); /* eslint-disable max-len */
+	
+	module.exports = exports['default'];
+
+/***/ }),
+/* 250 */
 /*!**********************************************************!*\
   !*** ./src/Routes/Interactive_Zone/Interactive_Zone.jsx ***!
   \**********************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _VideoList=__webpack_require__(/*! ../../Components/VideoList/VideoList.jsx */ 237);var _VideoList2=_interopRequireDefault(_VideoList);var _Video=__webpack_require__(/*! ../../Components/Video/Video.jsx */ 238);var _Video2=_interopRequireDefault(_Video);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);var _QuizList=__webpack_require__(/*! ../../Components/QuizList/QuizList.jsx */ 239);var _QuizList2=_interopRequireDefault(_QuizList);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Interactive_Zone=function(_Component){_inherits(Interactive_Zone,_Component);function Interactive_Zone(props){_classCallCheck(this,Interactive_Zone);var _this=_possibleConstructorReturn(this,(Interactive_Zone.__proto__||Object.getPrototypeOf(Interactive_Zone)).call(this,props));_this.state={history:{props:props},vid:[],loading:false,sr:[],wa:[]};_this.logoutnow=_this.logoutnow.bind(_this);return _this;}_createClass(Interactive_Zone,[{key:'logoutnow',value:function logoutnow(){localStorage.removeItem('userName');localStorage.removeItem('token');console.log('logged out');this.props.history.push('/');}},{key:'componentWillMount',value:function componentWillMount(){var _this2=this;var video_id=this.props.match.params.video_id;video_id.toString();this.setState({loading:true});(0,_isomorphicFetch2.default)('/videos/ind/'+video_id).then(function(response){return response.json();}).then(function(json){return json;}).then(function(video){return _this2.setState({vid:video.video_id,sr:video.source,wa:video.watched,loading:false});});}},{key:'render',value:function render(){var loading=this.props.loading;var _state=this.state,vid=_state.vid,sr=_state.sr,wa=_state.wa;return _react2.default.createElement('div',null,_react2.default.createElement('h1',null,'Course ',vid,' Video'),loading?_react2.default.createElement('span',null,'loading...'):null,vid?_react2.default.createElement('div',null,_react2.default.createElement(_Video2.default,{key:1,video_id:vid,className:'youtube-frame',src:sr,watched:wa,course:true}),_react2.default.createElement(_QuizList2.default,{video_id:this.props.match.params.video_id})):_react2.default.createElement('span',null,' Currently ',video,' Videos '),_react2.default.createElement('button',{onClick:this.logoutnow},'logout'));}}]);return Interactive_Zone;}(_react.Component);exports.default=Interactive_Zone;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _VideoList=__webpack_require__(/*! ../../Components/VideoList/VideoList.jsx */ 237);var _VideoList2=_interopRequireDefault(_VideoList);var _Video=__webpack_require__(/*! ../../Components/Video/Video.jsx */ 238);var _Video2=_interopRequireDefault(_Video);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);var _QuizList=__webpack_require__(/*! ../../Components/QuizList/QuizList.jsx */ 239);var _QuizList2=_interopRequireDefault(_QuizList);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Interactive_Zone=function(_Component){_inherits(Interactive_Zone,_Component);function Interactive_Zone(props){_classCallCheck(this,Interactive_Zone);var _this=_possibleConstructorReturn(this,(Interactive_Zone.__proto__||Object.getPrototypeOf(Interactive_Zone)).call(this,props));_this.state={history:{props:props},vid:[],loading:false,sr:[],wa:[]};_this.logoutnow=_this.logoutnow.bind(_this);return _this;}_createClass(Interactive_Zone,[{key:'logoutnow',value:function logoutnow(){localStorage.removeItem('userName');localStorage.removeItem('token');console.log('logged out');this.props.history.push('/');}},{key:'componentWillMount',value:function componentWillMount(){var _this2=this;var video_id=this.props.match.params.video_id;video_id.toString();this.setState({loading:true});(0,_isomorphicFetch2.default)('/videos/ind/'+video_id).then(function(response){return response.json();}).then(function(json){return json;}).then(function(video){return _this2.setState({vid:video.video_id,sr:video.source,wa:video.watched,vim:video.vimeo_id,loading:false});});}},{key:'render',value:function render(){var loading=this.props.loading;var _state=this.state,vid=_state.vid,sr=_state.sr,wa=_state.wa,vim=_state.vim;return _react2.default.createElement('div',null,_react2.default.createElement('h1',null,'Course ',vid,' Video'),loading?_react2.default.createElement('span',null,'loading...'):null,vid?_react2.default.createElement('div',null,_react2.default.createElement(_Video2.default,{key:1,video_id:vid,className:'youtube-frame',src:sr,watched:wa,course:true,video_num:vim}),_react2.default.createElement(_QuizList2.default,{video_id:this.props.match.params.video_id})):_react2.default.createElement('span',null,' Currently ',video,' Videos '),_react2.default.createElement('button',{onClick:this.logoutnow},'logout'));}}]);return Interactive_Zone;}(_react.Component);exports.default=Interactive_Zone;
 
 /***/ }),
-/* 244 */
+/* 251 */
 /*!****************************************!*\
   !*** ./src/Routes/Landing/Landing.jsx ***!
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _App=__webpack_require__(/*! ../../Components/App/App.jsx */ 245);var _App2=_interopRequireDefault(_App);var _reactRouter=__webpack_require__(/*! react-router */ 195);var _Login=__webpack_require__(/*! ../../Components/Login/Login.jsx */ 246);var _Login2=_interopRequireDefault(_Login);var _Signup=__webpack_require__(/*! ../../Components/Signup/Signup.jsx */ 247);var _Signup2=_interopRequireDefault(_Signup);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Landing=function(_Component){_inherits(Landing,_Component);function Landing(props){_classCallCheck(this,Landing);var _this=_possibleConstructorReturn(this,(Landing.__proto__||Object.getPrototypeOf(Landing)).call(this,props));_this.state={history:{props:props}};return _this;}_createClass(Landing,[{key:'render',value:function render(){return _react2.default.createElement('div',null,_react2.default.createElement('div',{id:'flex_sign'},_react2.default.createElement('h1',null,'Landing Page '),_react2.default.createElement(_Login2.default,{next:this.state.history}),_react2.default.createElement(_Signup2.default,{next:this.state.history}),_react2.default.createElement('footer',null,' Created by Imani Fecu ')));}}]);return Landing;}(_react.Component);exports.default=Landing;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _App=__webpack_require__(/*! ../../Components/App/App.jsx */ 252);var _App2=_interopRequireDefault(_App);var _reactRouter=__webpack_require__(/*! react-router */ 195);var _Login=__webpack_require__(/*! ../../Components/Login/Login.jsx */ 253);var _Login2=_interopRequireDefault(_Login);var _Signup=__webpack_require__(/*! ../../Components/Signup/Signup.jsx */ 254);var _Signup2=_interopRequireDefault(_Signup);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Landing=function(_Component){_inherits(Landing,_Component);function Landing(props){_classCallCheck(this,Landing);var _this=_possibleConstructorReturn(this,(Landing.__proto__||Object.getPrototypeOf(Landing)).call(this,props));_this.state={history:{props:props}};return _this;}_createClass(Landing,[{key:'render',value:function render(){return _react2.default.createElement('div',null,_react2.default.createElement('div',{id:'flex_sign'},_react2.default.createElement('h1',null,'Landing Page '),_react2.default.createElement(_Login2.default,{next:this.state.history}),_react2.default.createElement(_Signup2.default,{next:this.state.history}),_react2.default.createElement('footer',null,' Created by Imani Fecu ')));}}]);return Landing;}(_react.Component);exports.default=Landing;
 
 /***/ }),
-/* 245 */
+/* 252 */
 /*!************************************!*\
   !*** ./src/Components/App/App.jsx ***!
   \************************************/
@@ -8639,31 +9319,59 @@
 	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _reactRouter=__webpack_require__(/*! react-router */ 195);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var App=function(_Component){_inherits(App,_Component);function App(){_classCallCheck(this,App);return _possibleConstructorReturn(this,(App.__proto__||Object.getPrototypeOf(App)).apply(this,arguments));}_createClass(App,[{key:'render',value:function render(){return _react2.default.createElement('div',null);}}]);return App;}(_react.Component);exports.default=App;
 
 /***/ }),
-/* 246 */
+/* 253 */
 /*!****************************************!*\
   !*** ./src/Components/Login/Login.jsx ***!
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Login=function(_Component){_inherits(Login,_Component);function Login(props){_classCallCheck(this,Login);var _this=_possibleConstructorReturn(this,(Login.__proto__||Object.getPrototypeOf(Login)).call(this,props));_this.state={currentToken:0};_this.submit=_this.submit.bind(_this);return _this;}_createClass(Login,[{key:'submit',value:function submit(e){var _this2=this;e.preventDefault();console.log('clicked');(0,_isomorphicFetch2.default)('/user/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:this.refs.username.value,password:this.refs.password.value})}).then(function(r){return r.json();}).then(function(user){var data=user;if(data.token==undefined||data.token==null){console.log('is null');console.log('error at login');}else{console.log(user,'is user');localStorage.setItem('token',user.token);localStorage.setItem('ind',user.username);console.log(user.admin);if(user.admin==true){console.log('admin');var val=user.admin;val.toString();_this2.props.next.props.history.push("/dashboard/"+val);}else if(user.admin==false){var _val=user.admin;_val.toString();_this2.props.next.props.history.push('/dashboard/'+_val);}}});}},{key:'render',value:function render(){var _props=this.props,username=_props.username,password=_props.password;return _react2.default.createElement('div',null,_react2.default.createElement('form',{onSubmit:this.submit,className:'login-form'},_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'username'},'Username'),_react2.default.createElement('input',{id:'username',type:'text',required:true,ref:'username'})),_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'password'},'Password'),_react2.default.createElement('input',{id:'password',ref:'password',type:'password',required:true})),_react2.default.createElement('button',{onClick:this.submit},'submit')));}}]);return Login;}(_react.Component);exports.default=Login;Login.defaultProps={username:"imani",password:"imani"};Login.propTypes={username:_react.PropTypes.string.isRequired,password:_react.PropTypes.string.isRequired};
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Login=function(_Component){_inherits(Login,_Component);function Login(props){_classCallCheck(this,Login);var _this=_possibleConstructorReturn(this,(Login.__proto__||Object.getPrototypeOf(Login)).call(this,props));_this.state={currentToken:0};_this.submit=_this.submit.bind(_this);return _this;}_createClass(Login,[{key:'submit',value:function submit(e){var _this2=this;e.preventDefault();console.log('clicked');(0,_isomorphicFetch2.default)('/user/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:this.refs.username.value,password:this.refs.password.value})}).then(function(r){return r.json();}).then(function(user){var data=user;if(data.token==undefined||data.token==null){console.log('is null');console.log('error at login');}else{console.log(user,'is user');localStorage.setItem('token',user.token);localStorage.setItem('ind',user.username);console.log(user.admin);if(user.admin==true){console.log('admin');var val=user.admin;val.toString();_this2.props.next.props.history.push("/dashboard");}else if(user.admin==false){var _val=user.admin;_val.toString();_this2.props.next.props.history.push('/dashboard/');}}});}},{key:'render',value:function render(){var _props=this.props,username=_props.username,password=_props.password;return _react2.default.createElement('div',null,_react2.default.createElement('form',{onSubmit:this.submit,className:'login-form'},_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'username'},'Username'),_react2.default.createElement('input',{id:'username',type:'text',required:true,ref:'username'})),_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'password'},'Password'),_react2.default.createElement('input',{id:'password',ref:'password',type:'password',required:true})),_react2.default.createElement('button',{onClick:this.submit},'submit')));}}]);return Login;}(_react.Component);exports.default=Login;Login.defaultProps={username:"imani",password:"imani"};Login.propTypes={username:_react.PropTypes.string.isRequired,password:_react.PropTypes.string.isRequired};
 
 /***/ }),
-/* 247 */
+/* 254 */
 /*!******************************************!*\
   !*** ./src/Components/Signup/Signup.jsx ***!
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Signup=function(_Component){_inherits(Signup,_Component);function Signup(props){_classCallCheck(this,Signup);var _this=_possibleConstructorReturn(this,(Signup.__proto__||Object.getPrototypeOf(Signup)).call(this,props));_this.state={};_this.submit=_this.submit.bind(_this);return _this;}_createClass(Signup,[{key:'submit',value:function submit(e){var _this2=this;e.preventDefault();console.log('signup button pressed');var user=[];if(this.refs.password.value==this.refs.confirm.value){if(this.refs.username!="admin"){var admin=false;fetch('/user/signup/'+admin,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:this.refs.username.value,password:this.refs.password.value})}).then(function(r){return r.json();}).then(function(data){user=data.user_id;console.log('sending non-admin to dashboard',data);fetch('/user/user/'+user,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:_this2.refs.username.value,password:_this2.refs.password.value})});_this2.props.next.props.history.push('/dashboard/false');});}else{var _admin=true;fetch('/user/signup/'+_admin,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:this.refs.username.value,password:this.refs.password.value})}).then(function(){console.log('sending admin to dashboard');_this2.props.next.props.history.push('/dashboard/true');});}}else console.log('password not the same');}},{key:'render',value:function render(){return _react2.default.createElement('div',null,_react2.default.createElement('form',{onSubmit:this.submit,className:'signup-form'},_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'signup-username'},'Username'),_react2.default.createElement('input',{id:'signup-username',ref:'username',type:'text',required:true})),_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'signup-password'},'Password'),_react2.default.createElement('input',{id:'signup-password',ref:'password',type:'password',required:true})),_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'signup-username'},'Username'),_react2.default.createElement('input',{id:'signup-password-confirm',ref:'confirm',type:'password',required:true})),_react2.default.createElement('button',null,'Submit')));}}]);return Signup;}(_react.Component);exports.default=Signup;Signup.defaultProps={username:"imani",password:"imani",confirm:"imani"};Signup.propTypes={username:_react.PropTypes.string.isRequired,password:_react.PropTypes.string.isRequired,confirm:_react.PropTypes.string.isRequired};
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Signup=function(_Component){_inherits(Signup,_Component);function Signup(props){_classCallCheck(this,Signup);var _this=_possibleConstructorReturn(this,(Signup.__proto__||Object.getPrototypeOf(Signup)).call(this,props));_this.state={};_this.submit=_this.submit.bind(_this);return _this;}_createClass(Signup,[{key:'submit',value:function submit(e){var _this2=this;e.preventDefault();console.log('signup button pressed');var user=[];if(this.refs.password.value==this.refs.confirm.value){if(this.refs.username!="admin"){var admin=false;fetch('/user/signup/'+admin,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:this.refs.username.value,password:this.refs.password.value})}).then(function(r){return r.json();}).then(function(data){user=data.user_id;console.log('sending non-admin to dashboard',data);fetch('/user/user/'+user,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:_this2.refs.username.value,password:_this2.refs.password.value})});_this2.props.next.props.history.push('/dashboard');});}else{var _admin=true;fetch('/user/signup/'+_admin,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:this.refs.username.value,password:this.refs.password.value})}).then(function(){console.log('sending admin to dashboard');_this2.props.next.props.history.push('/dashboard');});}}else console.log('password not the same');}},{key:'render',value:function render(){return _react2.default.createElement('div',null,_react2.default.createElement('form',{onSubmit:this.submit,className:'signup-form'},_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'signup-username'},'Username'),_react2.default.createElement('input',{id:'signup-username',ref:'username',type:'text',required:true})),_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'signup-password'},'Password'),_react2.default.createElement('input',{id:'signup-password',ref:'password',type:'password',required:true})),_react2.default.createElement('div',null,_react2.default.createElement('label',{htmlFor:'signup-username'},'Username'),_react2.default.createElement('input',{id:'signup-password-confirm',ref:'confirm',type:'password',required:true})),_react2.default.createElement('button',null,'Submit')));}}]);return Signup;}(_react.Component);exports.default=Signup;Signup.defaultProps={username:"imani",password:"imani",confirm:"imani"};Signup.propTypes={username:_react.PropTypes.string.isRequired,password:_react.PropTypes.string.isRequired,confirm:_react.PropTypes.string.isRequired};
 
 /***/ }),
-/* 248 */
+/* 255 */
 /*!******************************************!*\
   !*** ./src/Components/404/Whoops404.jsx ***!
   \******************************************/
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports,"__esModule",{value:true});var Whoops404=exports.Whoops404=function Whoops404(){return React.createElement("div",null,React.createElement("h1",null,"Whoops, route not found"));};
+
+/***/ }),
+/* 256 */
+/*!**********************************************************!*\
+  !*** ./src/Components/UnwatchedVideo/UnwatchedVideo.jsx ***!
+  \**********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(/*! react */ 1);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(/*! react-router-dom */ 182);var _QuizList=__webpack_require__(/*! ../QuizList/QuizList.jsx */ 239);var _QuizList2=_interopRequireDefault(_QuizList);__webpack_require__(/*! ./UnwatchedVideo.css */ 257);var _reactVimeo=__webpack_require__(/*! react-vimeo */ 242);var _reactVimeo2=_interopRequireDefault(_reactVimeo);var _isomorphicFetch=__webpack_require__(/*! isomorphic-fetch */ 225);var _isomorphicFetch2=_interopRequireDefault(_isomorphicFetch);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var UnwatchedVideo=function(_Component){_inherits(UnwatchedVideo,_Component);function UnwatchedVideo(props){_classCallCheck(this,UnwatchedVideo);var _this=_possibleConstructorReturn(this,(UnwatchedVideo.__proto__||Object.getPrototypeOf(UnwatchedVideo)).call(this,props));_this.state={loading:false,duration:0,currentTime:0};_this.videoFrame=_this.videoFrame.bind(_this);_this.timeupdate=_this.timeupdate.bind(_this);_this.play=_this.play.bind(_this);return _this;}_createClass(UnwatchedVideo,[{key:'videoFrame',value:function videoFrame(){e.preventDefault();console.log('clicked video frame');}},{key:'loaded',value:function loaded(e){console.log(e);console.log(e.target);}},{key:'componentDidMount',value:function componentDidMount(){window.addEventListener("message",this.timeupdate);}},{key:'componentWillUnmount',value:function componentWillUnmount(){window.removeEventListener("message",this.handleFrameTasks);}},{key:'handleFrameTasks',value:function handleFrameTasks(e){console.log(e// console.log(e.data)
+	);}},{key:'timeupdate',value:function timeupdate(e){var duration=void 0;var currentTime=void 0;if(e.data.event="timeupdate"){this.setState({duration:e.data.data.duration,currentTime:e.data.data.seconds});console.log(this.state.duration);console.log(this.state.currentTime);}if(this.state.currentTime<this.state.duration&&this.state.currentTime>this.state.duration-1){console.log('ended');var vid_id=this.props.video_id;var user=localStorage.getItem('ind');(0,_isomorphicFetch2.default)('/videos/update/'+vid_id,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({watched:true,user:user})});}}},{key:'play',value:function play(e){this.setState({duration:e.data.data.duration});console.log('the video is playing');}},{key:'render',value:function render(){var _props=this.props,className=_props.className,src=_props.src,allowFullScreen=_props.allowFullScreen,watched=_props.watched,video_id=_props.video_id,course=_props.course,video_num=_props.video_num;return _react2.default.createElement('div',{className:className},_react2.default.createElement('h1',null,'Video ID:',video_id),_react2.default.createElement(_reactVimeo2.default,{onPlay:this.play,className:'vimeo_vid',videoId:video_num}),',',watched==false&&course==true||watched==true?_react2.default.createElement('span',null,' watched video '):_react2.default.createElement(_reactRouterDom.Link,{to:'/courses/'+video_id},'Quiz'));}}]);return UnwatchedVideo;}(_react.Component);exports.default=UnwatchedVideo;
+
+/***/ }),
+/* 257 */
+/*!**********************************************************!*\
+  !*** ./src/Components/UnwatchedVideo/UnwatchedVideo.css ***!
+  \**********************************************************/
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 258 */
+/*!************************************************!*\
+  !*** ./src/Components/VideoList/VideoList.css ***!
+  \************************************************/
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

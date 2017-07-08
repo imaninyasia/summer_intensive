@@ -1,5 +1,5 @@
 .youtube-frame{
-  display: inline-block;
+  display: block;
 }
 .vimeo_vid {
   height: 315px;

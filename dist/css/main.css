@@ -8,5 +8,43 @@
 .youtube-frame{
   display: inline-block;
 }
+.vimeo_vid {
+  height: 315px;
+  width:560px;
+}
+
+.vimeo-play-button{
+  width: 40px;
+  height: 40px;
+}
+
+
+iframe {
+   height: 315px;
+  width:560px;
+
+}
+.youtube-frame{
+  display: inline-block;
+}
+.youtube-frame{
+  display: block;
+}
+.vimeo_vid {
+  height: 315px;
+  width:560px;
+}
+
+.vimeo-play-button{
+  width: 40px;
+  height: 40px;
+}
+
+
+iframe {
+   height: 315px;
+  width:560px;
+
+}
 
 /*# sourceMappingURL=main.css.map*/

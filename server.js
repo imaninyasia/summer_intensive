@@ -24,10 +24,12 @@ const userRouter = require('./routes/user.js');
 const studentRouter = require('./routes/student.js')
 const videoRouter = require('./routes/video.js');
 const questionRouter = require('./routes/question.js');
+const adminRotuer = require('./routes/admin.js')
 app.use('/user', userRouter);
 app.use('/student', studentRouter )
 app.use('/videos', videoRouter )
 app.use('/questions', questionRouter)
+app.use('/admin', adminRouter)
 // app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/', '/favicon.ico','/user/signup', 'user/login', '/user/verify', '/videos/', '/student/','/questions', '/dashboard','/courses/3', '/videos/ind/3']}));
 
 

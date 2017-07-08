@@ -34,13 +34,14 @@ export default class Interactive_Zone extends Component{
       vid: video.video_id,
       sr: video.source,
       wa: video.watched,
+      vim: video.vimeo_id,
       loading: false
     })
       ))
   }
   render(){
     const {loading} = this.props
-    const {vid, sr, wa} = this.state
+    const {vid, sr, wa, vim} = this.state
     return(
       <div>
         <h1>Course {vid} Video</h1>
@@ -53,7 +54,8 @@ export default class Interactive_Zone extends Component{
                     className="youtube-frame"
                     src={sr}
                     watched={wa}
-                    course={true} />
+                    course={true}
+                    video_num={vim} />
 
                     <QuizList
                     video_id={this.props.match.params.video_id}/>
