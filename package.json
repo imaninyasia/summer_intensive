@@ -22,6 +22,7 @@
     "normalize-range": "^0.1.2",
     "num2fraction": "^1.2.2",
     "path": "^0.12.7",
+    "path-to-regexp": "^1.7.0",
     "pg-promise": "^5.9.0",
     "pinkie-promise": "^2.0.1",
     "prop-types": "^15.5.10",

@@ -6,9 +6,9 @@ export default class Container extends Component{
   render(){
     return(
       <div>
-        {this.props.children && React.cloneElement(this.props.children, {
-          state:this.state
-        })}
+      <h2>This can be a logout button</h2>
+        {this.props.children}
+
       </div>
       )
   }
