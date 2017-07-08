@@ -87,7 +87,7 @@ console.log('the video is playing')
 
 
 
-      {((watched==false && course==true) ||(watched==true))? <span> watched video </span> : <Link to={`/courses/${video_id}`}>Quiz</Link>
+      {((watched==false && course==true) ||(watched==true))? null : <Link to={`/courses/${video_id}`}>Quiz</Link>
                                                   }
 
 

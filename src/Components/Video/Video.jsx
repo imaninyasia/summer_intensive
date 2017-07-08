@@ -84,8 +84,8 @@ console.log('the video is playing')
       <h1>Video ID:{video_id}</h1>
        <Vimeo onPlay={this.play}
             className="vimeo_vid"
-            videoId={ video_num } />,
-      {((watched==false && course==true) ||(watched==true))? <span> watched video </span> : <Link to={`/courses/${video_id}`}>Quiz</Link>}
+            videoId={ video_num } />
+      {((watched==false && course==true) ||(watched==true))? null : <Link to={`/courses/${video_id}`}>Quiz</Link>}
     </div>
     )
   }

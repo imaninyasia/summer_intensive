@@ -15,7 +15,6 @@ render(){
         <ul>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/dashboard'>dashboard</Link></li>
-        <li><Link to='/courses'>interactive zone</Link></li>
         <li><Logout /></li>
         </ul>
       </nav>
