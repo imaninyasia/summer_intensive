@@ -24,7 +24,7 @@ const userRouter = require('./routes/user.js');
 const studentRouter = require('./routes/student.js')
 const videoRouter = require('./routes/video.js');
 const questionRouter = require('./routes/question.js');
-const adminRotuer = require('./routes/admin.js')
+const adminRouter = require('./routes/admin.js')
 app.use('/user', userRouter);
 app.use('/student', studentRouter )
 app.use('/videos', videoRouter )

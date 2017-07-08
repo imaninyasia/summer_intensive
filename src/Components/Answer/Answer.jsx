@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import User from '../User/User.jsx';
-import './UserList.css'
+import './Answer.css'
 
 export default class Answer extends Component {
 
   constructor(props){
+    super(props)
 
   }
 

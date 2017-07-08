@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
-import User from '../User/User.jsx';
-import './UserList.css'
+import Useranswer from '../../Answer/Answer.jsx';
+import '../UserList.css'
 export default class UserAnswersList extends Component {
 
     constructor(props){
@@ -15,8 +15,7 @@ export default class UserAnswersList extends Component {
 render() {
         const {answers, loading} = this.state
         return (
-            <div className="user-list">
-                <h1> User's Answers </h1>
+            <div className="answers-list">
                 {(loading)?
                   <span>loading...</span>:
                   <span>{answers.length} answers</span>
