@@ -8,7 +8,7 @@
 
 # production
 /build
-
+/bskit-builder
 # misc
 .DS_Store
 .env.local
