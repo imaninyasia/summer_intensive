@@ -10,10 +10,19 @@ super(props);
 
 render(){
   return(
-    <div className="container">
+    <div>
     <Header />
     <Main />
-    <footer>this is a footer</footer>
+      <div className="copyright-bar bg-black">
+    <div className="container">
+      <div className="editContent" style={{outline: 'none', cursor: 'inherit'}}>
+        <p className="pull-left small">© bskit - Bootstrap Starter Kit</p>
+      </div>
+      <div className="editContent" style={{outline: 'none', cursor: 'inherit'}}>
+        <p className="pull-right small">Made with <span className="fa fa-heart pomegranate" style={{outline: 'none', cursor: 'inherit'}}></span> in London</p>
+      </div>
+    </div>
+  </div>
     </div>
     )
 }

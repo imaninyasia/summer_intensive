@@ -14,8 +14,8 @@ function getQuestions(req, res, next){
 }
 
 function postQuestion(req, res, next){
-  db.none('INSERT INTO userQuiz (user_id, answer, question_id) VALUES ($1, $2, $3, $3);',
-    [req.params.user_id, req.params.user_answer, req.params.question_id ])
+  db.none("INSERT into user_quiz (user_id, answer, question_id) VALUES((SELECT user_id from users where username=($1)), ($2), ($3));",
+    [req.params.username, req.params.user_answer, req.params.question_id ])
     .then( () => {
       console.log('question posted')
       next()

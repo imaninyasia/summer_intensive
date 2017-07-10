@@ -30,6 +30,7 @@ export default class Interactive_Zone extends Component{
     .then(response => response.json())
     .then(json => json)
     .then(video =>(
+      console.log(video),
       this.setState({
       vid: video.video_id,
       sr: video.source,
@@ -42,14 +43,27 @@ export default class Interactive_Zone extends Component{
   render(){
     const {loading} = this.props
     const {vid, sr, wa, vim} = this.state
+    console.log(vid)
     return(
-      <div>
-        <h1>Course {vid} Video</h1>
-        {(loading)?<span>loading...</span>: null }
+      <section className="content-block">
+      <div className="container">
+
+        <ul className="nav nav-tabs text-center" role="tablist" id="myTab" style={{
+    paddingBottom: '0px'
+}}>
+          <li className="active"><h1 role="tab" data-toggle="tab">Course {vid} Video</h1></li>
+      </ul>
+
+      <div className="tab-content">
+        <div className="tab-pane fade in active" id="tab1">
+          <div className="row" style={{height: '375px'}}>
+            <div className="col-sm-10 col-sm-offset-1" style={{width: '812px', marginLeft: '0px'}}>
+              {(loading)?<span>loading...</span>: null }
         {(vid)?
             <div>
+
             <Video
-                    key={1}
+
                     video_id={vid}
                     className="youtube-frame"
                     src={sr}
@@ -57,14 +71,28 @@ export default class Interactive_Zone extends Component{
                     course={true}
                     video_num={vim} />
 
-                    <QuizList
-                    video_id={this.props.match.params.video_id}/>
+
             </div>
                     :
               <span> Currently {video} Videos </span>
                 }
+            </div>
+            <div className="col-md-5 col-sm-6" style={{paddingRight: '0px', width: '354px', paddingLeft: '0px', height: '143px'}}>
+              <div className="editContent">
+                <h3>Quiz</h3>
+              </div>
+              <div className="editContent">
+                <p>Quiz questions go here</p>
+                <QuizList
+                    video_id={this.props.match.params.video_id}/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       </div>
+  </section>
       )
   }
 }

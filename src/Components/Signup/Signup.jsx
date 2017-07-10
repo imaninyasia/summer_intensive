@@ -73,6 +73,7 @@ export default class Signup extends Component {
 
     return(
           <div>
+
           <form onSubmit={this.submit} className="signup-form">
             <div>
               <label htmlFor="signup-username">Username</label>

@@ -79,13 +79,31 @@ console.log('the video is playing')
     const {className, src, allowFullScreen, watched, video_id, course, video_num} = this.props
     console.log(this.state.duration)
     console.log(this.state.currentTime)
+    console.log(course, 'course')
     return(
-    <div className={className} style={{display: 'inline-block'}}>
-      <h1>Video ID:{video_id}</h1>
-       <Vimeo onPlay={this.play}
+    <div className={className} >
+      {(course==true) ?<Vimeo onPlay={this.play}
             className="vimeo_vid"
             videoId={ video_num } />
-      {((watched==false && course==true) ||(watched==true))? null : <Link to={`/courses/${video_id}`}>Quiz</Link>}
+            :
+      <div className="grid col-md-4 col-sm-6 col-xs-12">
+          <figure className="effect-lily">
+            <Vimeo onPlay={this.play}
+            className="vimeo_vid"
+            videoId={ video_num } />
+            <figcaption>
+              <div className="editContent" style={{outline: 'none', cursor: 'inherit'}}>
+                <h2>Item <strong>3</strong></h2>
+              </div>
+              <div className="editContent" style={{outline: 'none', cursor: 'inherit'}}>
+                <p>Beautifully subtle animated hover effect for your gallery</p>
+              </div>
+              {((watched==false && course==true) ||(watched==true))? null : <Link to={`/courses/${video_id}`}>Quiz</Link>}
+              <a href="#"></a>
+            </figcaption>
+          </figure>
+        </div>
+      }
     </div>
     )
   }

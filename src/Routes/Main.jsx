@@ -13,7 +13,7 @@ export default class Main extends Component{
 
   render(){
     return(
-      <main>
+      <main >
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/dashboard"  component={Dashboard} />

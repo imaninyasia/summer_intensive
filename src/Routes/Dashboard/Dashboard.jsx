@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserList from '../../Components/UserList/UserList.jsx'
-import VideoList from '../../Components/VideoList/VideoList.jsx'
+import StudentDash from '../../Components/StudentDash/StudentDash.jsx'
 export default class Dashboard extends Component{
 
   constructor(props){
@@ -78,12 +78,45 @@ componentWillMount(){
   // }
     const admin = this.state.admin
     return(
-      <div>
-      <h1>Dashboard</h1>
+     <div>
+    {(admin==true || admin==="admin") ?
+    <div>
 
-      {(admin==true) ?<UserList /> :
-                      <VideoList history={this.props}/>}
-      </div>
+    <section className="content-block gallery-1">
+
+      <div className="container">
+
+        <div className="underlined-title">
+          <div className="editContent">
+              <h1>Students</h1>
+          </div>
+          <hr />
+          <div className="editContent">
+            <h2>Hand-picked just for you</h2>
+          </div>
+        </div>
+
+        <div className="editContent">
+              <ul className="filter"><br /></ul>
+        </div>
+
+
+            <div className="row">
+                <div id="isotope-gallery-container">
+                    <UserList />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    </div> :
+                      <StudentDash history={this.props}/>}
+</div>
       )
   }
 }

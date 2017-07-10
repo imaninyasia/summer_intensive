@@ -9,7 +9,6 @@ JOIN video_relations on videos.video_id = video_relations.video_id
 JOIN users on video_relations.user_id= users.user_id
 WHERE users.username = ($1) and video_relations.watched=false;`,[user])
  .then((video) => {
-  console.log(video)
       res.video = video[0];
       next();
     })

@@ -13,28 +13,27 @@ export default class Quiz extends Component{
   }
   submit(e){
     e.preventDefault()
-    console.log(e.target)
-    console.log(e.target.value,'help')
     console.log(this.state.selectedOption)
     let video_id = this.props.video_id
     let q_id = this.props.question_id
-    let option = e.target
+    let user_answer = this.state.selectedOption
+    let username = localStorage.getItem("ind")
     this.setState({loading: true,
                     visible: false})
-    // fetch("/questions/post_q"+q_id+"/"+user_id+"/"+user_answer, {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     answered: true,
-    //   })
-    // })
-    // .then(response => response.json())
-    // .then(json => json)
-    // .then(returned =>
-    //   console.log(returned)
-    //   )
+    fetch("/questions/post_q"+"/"+q_id+"/"+username+"/"+user_answer, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        answered: true,
+      })
+    })
+    .then(response => response.json())
+    .then(json => json)
+    .then(returned =>
+      console.log(returned)
+      )
     console.log('You have selected:', this.state.selectedOption)
   }
   handleOptionChange(e) {

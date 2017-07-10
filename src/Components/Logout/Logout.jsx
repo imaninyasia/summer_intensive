@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Logout.css';
 export default class Logout extends Component{
 
   constructor(props){
@@ -17,8 +18,9 @@ export default class Logout extends Component{
   }
   render(){
     return(
-      <div className="logout_button">
-      <Link  onClick={this.logoutnow} to='/'>Logout</Link>
+      <div className="Ilog">
+      <Link  style={{color: "rgba(255, 255, 255, 0.8)", fontWeight: "400", textTransform: "uppercase"}}
+      onClick={this.logoutnow} to='/'>Logout</Link>
       </div>
       )
   }

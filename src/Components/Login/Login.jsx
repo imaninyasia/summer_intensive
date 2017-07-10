@@ -42,7 +42,7 @@ export default class Login extends Component {
       }else if (user.admin == false){
         let val = user.admin
         val.toString()
-        this.props.next.props.history.push('/dashboard/')
+        this.props.next.props.history.push('/dashboard')
       }
       }
       }
@@ -53,16 +53,23 @@ export default class Login extends Component {
     const {username, password} = this.props
     return(
           <div>
-            <form onSubmit={this.submit} className="login-form">
-              <div>
-              <label htmlFor="username">Username</label>
-              <input id="username" type="text" required ref="username"/>
+            <form onSubmit={this.submit} >
+      <div className="row">
+            <div className="col-md-6">
+              <div className="form-group">
+                <input id="username" type="text" required ref="username" placeholder="Username" className="form-control" />
               </div>
-              <div>
-              <label htmlFor="password">Password</label>
-              <input id="password" ref="password" type="password" required />
+            </div>
+            <div className="col-md-6">
+              <div className="form-group">
+                <input id="password" ref="password" type="password" required placeholder="Password" className="form-control" />
               </div>
-              <button onClick={this.submit}>submit</button>
+            </div>
+          </div>
+          <div className="form-group">
+            <input type="text" placeholder="Email address" className="form-control" />
+          </div>
+ <a onClick={this.submit} className="btn btn-primary btn-block" style={{outline: 'none', cursor: 'inherit', outlineOffset: '-2px', borderRadius: '4px', fontSize: '14px', backgroundColor: 'rgb(22, 160, 133)'}} src="http://placehold.it/800x600">Login</a>
             </form>
           </div>
     )

@@ -79,21 +79,24 @@ console.log('the video is playing')
     return(
 
     <div className={className}>
-
-    <h1>Video ID:{video_id}</h1>
-     <Vimeo onPlay={this.play}
+  <div className="col-md-5 col-md-offset-1 col-sm-6">
+            <Vimeo
+            onPlay={this.play}
             className="vimeo_vid"
-            videoId={ video_num } />,
+            videoId={ video_num } />
+            </div>
+            <div className="col-md-5 col-sm-6" style={{marginLeft: '7%', marginTop: '8%'}}>
+              <div className="editContent" style={{outline: 'none', cursor: 'inherit'}}>
+                <h3>Video content chapter</h3>
+              </div>
+              <div className="editContent" style={{fontSize: '40px',outline: 'none', cursor: 'inherit', leftMargin: '10%'}}>
+                {((watched==false && course==true) ||(watched==true))? null :
+        <Link to={`/courses/${video_id}`}>Quiz</Link> }
+              </div>
+            </div>
 
+          </div>
 
-
-      {((watched==false && course==true) ||(watched==true))? null : <Link to={`/courses/${video_id}`}>Quiz</Link>
-                                                  }
-
-
-
-
-    </div>
     )
   }
 }

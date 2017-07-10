@@ -1,31 +1,7 @@
-.user{
-  display: inline-block;
-  width: 400px;
-}
+
+
 .user-list{
   display: 'inline-block';
-}
-.youtube-frame{
-  display: inline-block;
-}
-.vimeo_vid {
-  height: 315px;
-  width:560px;
-}
-
-.vimeo-play-button{
-  width: 40px;
-  height: 40px;
-}
-
-
-iframe {
-   height: 315px;
-  width:560px;
-
-}
-.youtube-frame{
-  display: inline-block;
 }
 .youtube-frame{
   display: block;
@@ -46,5 +22,33 @@ iframe {
   width:560px;
 
 }
+/*.youtube-frame{
+  display: inline-block;
+}
+.vimeo_vid {
+  height: 315px;
+  width:560px;
+}
+
+.vimeo-play-button{
+  width: 40px;
+  height: 40px;
+}
+
+
+iframe {
+   height: 315px;
+  width:560px;
+
+}
+*/
+
+.Ilog{
+    outline: none;
+    outline-offset: -2px;
+    cursor: inherit;
+    margin-top: 13px;
+    margin-left: 10px;
+  }
 
 /*# sourceMappingURL=main.css.map*/

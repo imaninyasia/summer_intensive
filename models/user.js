@@ -17,10 +17,11 @@ function createUser(req, res, next) {
     })
   .catch(error => console.log(error))
 } else if (admin == 'true'){
-  db.none('INSERT INTO users (username, password, admin, profile_img) VALUES ($1, $2, $3, $4);',
+  db.one('INSERT INTO users (username, password, admin, profile_img) VALUES ($1, $2, $3, $4);',
     [req.body.username, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
-    .then( () => {
-      console.log('user created!')
+    .then( (data) => {
+      res.user = data
+      console.log('user(admin) created!')
       next()
     })
   .catch(error => console.log(error))

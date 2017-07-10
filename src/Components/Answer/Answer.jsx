@@ -12,11 +12,13 @@ export default class Answer extends Component {
 
 
   render(){
-    const {user_id, answer, question_id} = this.props
+    const {user, answer, question, ques_num} = this.props
     return(
     <div>
-    <h3>This is the question</h3>
-    <p>this is the answer</p>
+    <h3>{user}</h3>
+    <h1>#{ques_num}</h1>
+    <h3>Question: {question} </h3>
+    <h3>Answer: {answer} this is the answer</h3>
     </div>
     )
   }

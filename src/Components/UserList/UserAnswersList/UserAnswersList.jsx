@@ -8,12 +8,26 @@ export default class UserAnswersList extends Component {
     super(props)
     this.state= {
       answers: [],
-      loading: false
+      loading: false,
     }
+  }
+
+  componentDidMount(){
+    let user = this.props.user
+    fetch('/admin/answers'+"/"+user)
+    .then(response => response.json())
+    .then(json => json)
+    .then(answers =>
+      this.setState({
+      answers,
+      loading: false
+    }))
   }
 
 render() {
         const {answers, loading} = this.state
+        const { user }= this.props
+        console.log(user)
         return (
             <div className="answers-list">
                 {(loading)?
@@ -25,9 +39,11 @@ render() {
                     (answer, index) =>
                 <Useranswer
                       Key={index}
-                      user={answer.user_id}
+                      user={answer.username}
                       answer={answer.answer}
-                      question={answer.question_id}/>
+                      question={answer.question}
+                      ques_num= {answer.question_id}
+                      />
                       ):
                     <span> This user hasn't answered any questions </span>
                 }

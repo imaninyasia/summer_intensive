@@ -37,6 +37,7 @@ export default class UserList extends Component{
                   users.map(
                     (user, index) =>
                 <User Key={index}
+                      num = {user.user_id}
                       name={user.username}
                       email={user.email}
                       thumbnail={user.profile_img}/>
