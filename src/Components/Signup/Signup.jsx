@@ -1,21 +1,21 @@
-import React, { PropTypes, Component } from 'react';
-
+import React, { Component } from 'react';
+import { PropTypes} from 'prop-types';
 export default class Signup extends Component {
 
   constructor(props){
     super(props)
     this.state = {
-
+      validPasswords: true
     }
     this.submit = this.submit.bind(this)
   }
 
   submit(e){
     e.preventDefault()
-    console.log('signup button pressed')
     let user = []
     if (this.refs.password.value == this.refs.confirm.value) {
-      if (this.refs.username != "admin"){
+      if (this.refs.email!='admin.mail')
+      {
         let admin = false
       fetch(`/user/signup/${admin}`, {
       method: 'POST',
@@ -23,29 +23,30 @@ export default class Signup extends Component {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        username: this.refs.username.value,
+        email: this.refs.email.value,
         password: this.refs.password.value
       })
     })
       .then((r)=>r.json())
       .then((data) =>{
         user=data.user_id
-        console.log('sending non-admin to dashboard', data)
-
+        localStorage.setItem('token', data.token)
+      localStorage.setItem('ind', data.email)
        fetch('/user/user/'+user, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        username: this.refs.username.value,
+        email: this.refs.email.value,
         password: this.refs.password.value
       })
     })
        this.props.next.props.history.push('/dashboard')
       })
 
-    } else {
+    } else if(this.refs.email=='admin.mail')
+    {
       let admin = true
       fetch(`/user/signup/${admin}`, {
       method: 'POST',
@@ -53,12 +54,11 @@ export default class Signup extends Component {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        username: this.refs.username.value,
+        email: this.refs.email.value,
         password: this.refs.password.value
       })
     })
       .then(() =>{
-        console.log('sending admin to dashboard')
       this.props.next.props.history.push('/dashboard')
 
       })
@@ -66,40 +66,37 @@ export default class Signup extends Component {
     }
   }
     else
-      console.log('password not the same')
-  }
+      this.setState({validPasswords: false})
+        }
 
   render(){
-
+    let validPasswords=this.state.validPasswords
     return(
           <div>
-
-          <form onSubmit={this.submit} className="signup-form">
-            <div>
-              <label htmlFor="signup-username">Username</label>
-              <input id="signup-username" ref="username" type="text" required />
-            </div>
-            <div>
-            <label htmlFor="signup-password">Password</label>
-              <input id="signup-password" ref="password" type="password" required />
-            </div>
-            <div>
-            <label htmlFor="signup-username">Username</label>
-              <input id="signup-password-confirm" ref="confirm" type="password" required />
-            </div>
-            <button>Submit</button>
+          <form onSubmit={this.submit} >
+           <div className="form-group">
+            <input id="signup-email" required type="email" ref="email" placeholder="Email" className="form-control" />
+          </div>
+           <div className="form-group">
+            <input id="signup-password" ref="password" type="password" required placeholder="Password" className="form-control" />
+          </div>
+          <div className="form-group">
+            <input id="signup-password-confirm" required ref="confirm" type="password" placeholder="Confirm Password" required className="form-control" />
+          </div>
+ <button onClick={this.submit} className="btn btn-primary btn-block" style={{outline: 'none', cursor: 'inherit', outlineOffset: '-2px', borderRadius: '4px', fontSize: '14px', backgroundColor: 'rgb(22, 160, 133)'}} src="http://placehold.it/800x600">Signup</button>
             </form>
+            {(validPasswords == true)? null : <h5 style={{color: 'red'}}>Passwords not the same</h5> }
           </div>
     )
   }
 }
 Signup.defaultProps = {
-  username: "imani",
+  email: "imani",
   password: "imani",
   confirm: "imani"
 }
 Signup.propTypes = {
-  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   confirm: PropTypes.string.isRequired
 }

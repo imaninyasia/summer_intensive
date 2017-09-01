@@ -14,7 +14,6 @@ export default class Logout extends Component{
    logoutnow() {
       localStorage.removeItem('ind');
       localStorage.removeItem('token');
-      console.log('logged out')
   }
   render(){
     return(

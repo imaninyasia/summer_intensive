@@ -9,6 +9,16 @@ function getStudents(req, res, next){
     .catch(error => next(error));
 }
 
+function getStudent(req, res, next){
+  db.one('SELECT * from users WHERE email = $/email/;', req.params)
+  .then((student) => {
+    res.student = student;
+    next();
+  })
+  .catch(error => next(error));
+}
+
 module.exports = {
   getStudents,
+  getStudent
 }

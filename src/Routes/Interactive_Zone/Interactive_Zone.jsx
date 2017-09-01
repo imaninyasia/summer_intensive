@@ -19,7 +19,6 @@ export default class Interactive_Zone extends Component{
  logoutnow() {
       localStorage.removeItem('userName');
       localStorage.removeItem('token');
-      console.log('logged out')
       this.props.history.push('/')
   }
      componentWillMount() {
@@ -30,20 +29,21 @@ export default class Interactive_Zone extends Component{
     .then(response => response.json())
     .then(json => json)
     .then(video =>(
-      console.log(video),
+      console.log(video, 'this is what got loaded'),
       this.setState({
       vid: video.video_id,
       sr: video.source,
       wa: video.watched,
       vim: video.vimeo_id,
-      loading: false
+      loading: false,
+      course: video.course,
+      part: video.part
     })
       ))
   }
   render(){
     const {loading} = this.props
     const {vid, sr, wa, vim} = this.state
-    console.log(vid)
     return(
       <section className="content-block">
       <div className="container">
@@ -59,7 +59,7 @@ export default class Interactive_Zone extends Component{
           <div className="row" style={{height: '375px'}}>
             <div className="col-sm-10 col-sm-offset-1" style={{width: '812px', marginLeft: '0px'}}>
               {(loading)?<span>loading...</span>: null }
-        {(vid)?
+        {(vid!= undefined)?
             <div>
 
             <Video
@@ -69,6 +69,8 @@ export default class Interactive_Zone extends Component{
                     src={sr}
                     watched={wa}
                     course={true}
+                    course_val={this.state.course}
+                    part_val={this.state.part}
                     video_num={vim} />
 
 
@@ -78,10 +80,10 @@ export default class Interactive_Zone extends Component{
                 }
             </div>
             <div className="col-md-5 col-sm-6" style={{paddingRight: '0px', width: '354px', paddingLeft: '0px', height: '143px'}}>
-              <div className="editContent">
+              <div>
                 <h3>Quiz</h3>
               </div>
-              <div className="editContent">
+              <div>
                 <p>Quiz questions go here</p>
                 <QuizList
                     video_id={this.props.match.params.video_id}/>

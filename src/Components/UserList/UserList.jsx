@@ -36,9 +36,9 @@ export default class UserList extends Component{
                 {(users.length)?
                   users.map(
                     (user, index) =>
-                <User Key={index}
+                <User key={index}
                       num = {user.user_id}
-                      name={user.username}
+                      name={user.email}
                       email={user.email}
                       thumbnail={user.profile_img}/>
                       ):

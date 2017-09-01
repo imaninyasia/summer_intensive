@@ -8,7 +8,7 @@ export default class User extends Component{
      const {name, thumbnail, email, admin, num} = this.props
      return(
       <div>
-      {(name == 'admin') ? null :
+      {(name == 'admin.mail') ? null :
         <div className="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper photography artwork">
                         <div className="gallery-item">
                             <div className="gallery-thumb">

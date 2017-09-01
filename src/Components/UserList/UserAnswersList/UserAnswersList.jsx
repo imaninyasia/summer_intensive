@@ -14,7 +14,7 @@ export default class UserAnswersList extends Component {
 
   componentDidMount(){
     let user = this.props.user
-    fetch('/admin/answers'+"/"+user)
+    fetch(`/admin/answers/${user}`)
     .then(response => response.json())
     .then(json => json)
     .then(answers =>

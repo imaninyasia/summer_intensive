@@ -1,8 +1,58 @@
-
-
+.the_footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+.Ilog{
+    outline: none;
+    outline-offset: -2px;
+    cursor: inherit;
+    margin-top: 13px;
+    margin-left: 10px;
+  }
 .user-list{
   display: 'inline-block';
 }
+
+
+
+.vimeo_vid {
+  height: 315px;
+  width:560px;
+}
+
+.vimeo-play-button{
+  display: none;
+  width: 40px;
+  height: 40px;
+
+}
+
+.vimeo_vid_course{
+  height: 442.5px;
+  width:720px;
+  margin-top:-25%;
+}
+.vimeo_vid_course .vimeo-play-button{
+  display: block;
+  margin-left: 45%;
+  margin-top: 25%;
+  width: 40px;
+  height: 40px;
+
+}
+
+iframe {
+  height: 150%;
+  width:720px;
+  margin-top:35%;
+
+}
+
+
 .youtube-frame{
   display: block;
 }
@@ -22,33 +72,63 @@ iframe {
   width:560px;
 
 }
-/*.youtube-frame{
-  display: inline-block;
-}
-.vimeo_vid {
-  height: 315px;
-  width:560px;
-}
 
-.vimeo-play-button{
-  width: 40px;
-  height: 40px;
+.student_dash_thumb {
+width: 220px;
+}
+img {
+  border-radius: 50%;
 }
 
+.student_prof{
+  text-align: center;
+  margin-top: 30px;
+}
+.student_prof p {
+  font-size: 30px;
+}
 
-iframe {
-   height: 315px;
-  width:560px;
+#profile{
+  height: 100%;
+  width: 60%;
+  /*border-style: solid;*/
+   margin: 0 auto;
+   display: flex;
+  justify-content: space-around;
+}
+#course{
+  width: 150px;
+  height: 150px;
 
 }
-*/
+#show_vids{
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+#vids#hide{
+  opacity: 0;
+  pointer-events:none;
+}
+.n {
+display: none;
+}
+#part{
+   width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
 
-.Ilog{
-    outline: none;
-    outline-offset: -2px;
-    cursor: inherit;
-    margin-top: 13px;
-    margin-left: 10px;
-  }
 
-/*# sourceMappingURL=main.css.map*/
+.course-parts{
+
+width: auto;
+height: auto;
+
+}
+.course{
+min-width: auto;
+height: auto;
+text-align: center;
+display: inline-block;
+padding: 20px;
+}

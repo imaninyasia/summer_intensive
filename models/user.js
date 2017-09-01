@@ -1,24 +1,25 @@
 const db = require('../lib/db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
+var utils = require('../utils/index.js');
 const salt = 10;
 const profile_image = "http://s3.amazonaws.com/appforest_uf/f1493773137867x425836683949455600/empty_profile.png"
 function createUser(req, res, next) {
   let admin = req.params.admin
   if (admin == 'false'){
-  db.one('INSERT INTO users (username, password, admin, profile_img) VALUES ($1, $2, $3, $4) RETURNING *;',
-    [req.body.username, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
+  db.one('INSERT INTO users (email, password, admin, profile_img) VALUES ($1, $2, $3, $4) RETURNING *;',
+    [req.body.email, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
     .then( (data) => {
-      console.log(data, 'signup data')
-      res.user = data
+      var token = utils.generateToken(data);
+      res.user=data
+      res.user['token'] = token
       console.log('user created!')
       next()
     })
   .catch(error => console.log(error))
 } else if (admin == 'true'){
-  db.one('INSERT INTO users (username, password, admin, profile_img) VALUES ($1, $2, $3, $4);',
-    [req.body.username, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
+  db.one('INSERT INTO users (email, password, admin, profile_img) VALUES ($1, $2, $3, $4);',
+    [req.body.email, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
     .then( (data) => {
       res.user = data
       console.log('user(admin) created!')
@@ -34,9 +35,8 @@ function create_relation(req, res, next){
   let videos = []
   let user = req.params.user
   db.any('SELECT * FROM videos')
-    .then((data)=>{
+    .then((videos)=>{
     console.log('about to create video user relation')
-      videos = data
        videos.map(
           function(video, index) {
             index +=1
@@ -44,36 +44,55 @@ function create_relation(req, res, next){
                      })
     })
 
-  // db.none('INSERT INTO video_relations (video_id, user_id, watched) VALUES ($1, $2, false)', [req.params.vid, req.params.user])
+    db.any('SELECT * FROM courses')
+    .then((courses)=>{
+      console.log('about to create course relation')
+      courses.map(
+        function(course, index){
+          index +=1
+          db.none('INSERT INTO course_relation (user_id, course_id, progress) VALUES ($1, $2, false)', [user, index])
+
+        })
+    next();
+    }).catch(error => console.log(error))
+
+  db.any('SELECT * FROM parts')
+  .then((parts)=>{
+    console.log('about to create parts relation')
+    parts.map(
+      function(part, index){
+        index +=1
+        console.log(part.progress, 'part.progress')
+        db.none('INSERT INTO part_relation(user_id, part_id, progress) VALUES ($1, $2, $3)', [user, index, part.progress])
+      })
+  })
 }
 
 function login(req, res, next) {
-
-  db.one('SELECT * FROM users WHERE username = $/username/;', req.body)
+  db.one('SELECT * FROM users WHERE email=($1);', [req.body.email])
 
     .then((data) => {
-
       const match = bcrypt.compareSync(req.body.password, data.password);
-      console.log(match)
       if (match) {
 
-        const myToken = jwt.sign({ username: req.body.username, userID: data.user_id }, process.env.SECRET);
+        const myToken = jwt.sign({ email: req.body.email, userID: data.user_id }, process.env.SECRET);
 
         res.user = data
         res.user['token'] = myToken
+        console.log(res.user)
       } else {
-        res.status(500).send('fuck u fite me irl');
+        res.status(400).send({ error: "invalid password" });
+        res.user=null
+                console.log(res.user)
+
       }
-      console.log('logged in')
-      console.log(req.body.username)
-      console.log(data)
-
-
       next();
-
-
     })
-  .catch(error => console.log(error))
+  .catch(error =>{console.log(error)
+    res.status(500).send({ error: 'no email' })
+  }
+
+    )
 }
 
 function verify(req, res, next) {
@@ -88,17 +107,17 @@ function verify(req, res, next) {
         message: 'Please register Log in using a valid email to submit posts'
       });
     } else {
-      console.log("user", user)
-      if (user.username == "admin") {
+      if (user.email == "admin.mail") {
         res.user = user;
         res.user['admin'] = true
+        res.user['token'] = token
       }
       else{
         res.user = user;
         res.user['admin'] = false
+        res.user['token'] = token
       }
        //set the user to req so other routes can use it
-      console.log("res.user" , res.user)
       next();
     }
   });

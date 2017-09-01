@@ -10,7 +10,41 @@ export default class Main extends Component{
   constructor(props){
     super(props);
   }
+  componentDidUpdate(){
+    var token = localStorage.getItem('token')
+    fetch('/user/verify', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        token: token,
+      })
+    })
+    .then(r => r.json())
+    .then((data) => {
 
+     })
+    }
+
+componentWillMount(){
+ var token = localStorage.getItem('token')
+    fetch('/user/verify', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        token: token,
+      })
+    })
+    .then(r => r.json())
+    .then((data) => {
+
+     })
+    }
   render(){
     return(
       <main >

@@ -7,42 +7,42 @@ export default class Landing extends Component {
   constructor(props){
     super(props);
     this.state = {
-      history: {props}
+      history: {props},
+      signupClicked: false,
     }
-
+    this.signupButton = this.signupButton.bind(this)
   }
-
+signupButton(){
+this.setState({signupClicked: !this.state.signupClicked})
+}
 render(){
+  let signupClicked = this.state.signupClicked
     return(
-<section id="promo-1" className="content-block promo-1 min-height-600px bg-offwhite">
+<section style={{maxHeight: '100%', height: '1036px'}}id="promo-1" className="content-block promo-1 min-height-600px bg-offwhite">
     <div className="container">
 
       <div className="row">
 
-        <div className="col-md-5">
+        <div className="col-lg-4 col-lg-offset-4">
           <div className="editContent">
             <h2>Urban Arts Online Learning&nbsp;</h2>
           </div>
           <div className="editContent">
             <p>Suspendisse ac pretium sapien, placerat lacinia enim. Fusce eu elit quis lacus cursus mollis. In feugiat diam id sem consectetur, id accumsan risus venenatis.</p>
           </div>
+          {(signupClicked==false)? <Login next={this.state.history}/> :
+          <Signup next={this.state.history}/> }
+          {(signupClicked==true)? null : <h5 onClick={this.signupButton} style={{textAlign: 'center'}}>need to signup?</h5>}
+          {(signupClicked==false)? null : <h5 onClick={this.signupButton} style={{textAlign: 'center'}}>need to login?</h5>}
 
-          <Login next={this.state.history}/>
-
-        </div>
-
-        <div className="col-md-6 col-md-offset-1">
-
-          <div className="video-wrapper">
-            <iframe width="560" height="315" src="http://www.youtube.com/embed/vcQDcbChHQA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-          </div>
 
         </div>
+
 
       </div>
 
     </div>
-         <Signup next={this.state.history}/>
+
 
   </section>
 

@@ -9,6 +9,7 @@ super(props);
 
 
 render(){
+    let user=localStorage.getItem('ind')
   return(
 
     <header id="header-1">
@@ -25,19 +26,10 @@ render(){
                 </div>
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav navbar-right">
-            <li className="active nav-item"><a href="/">Home</a></li>
-            <li className="nav-item"><a href="/dashboard" style={{color: "rgba(255, 255, 255, 0.8)", fontWeight: "400", textTransform: "uppercase"}} src="images/brand/bskit-logo-white-nostrap.png">Dashboard</a></li>
+            {!user ? null : <li className="nav-item"><a href="/dashboard" style={{color: "rgba(255, 255, 255, 0.8)", fontWeight: "400", textTransform: "uppercase"}} src="images/brand/bskit-logo-white-nostrap.png">Dashboard</a></li>}
 
-            <li className="nav-item dropdown">
-              <a className="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#" style={{outline: 'none', outlineOffset: '-2px', cursor: 'inherit'}}>Pages <i className="fa fa-angle-down"></i></a>
-              <ul className="dropdown-menu">
-                <li><a href="#" style={{outline: 'none', cursor: 'inherit'}}>Dropdown 1</a></li>
-                <li><a href="#" style={{outline: 'none', cursor: 'inherit'}}>Dropdown 2</a></li>
-                <li><a href="#" style={{outline: 'none', cursor: 'inherit'}}>Dropdown 3</a></li>
-                <li><a href="#" style={{outline: 'none', cursor: 'inherit'}}>Dropdown 4</a></li>
-              </ul>
-            </li>
-            <li className="nav-item"><Logout /></li>
+            {!user ? null :<li className="nav-item"><Logout /></li> }
+
           </ul>
                 </div>
             </div>
