@@ -5,18 +5,19 @@ import Unwatchedvideo from '../../Components/UnwatchedVideo/UnwatchedVideo.jsx'
 import VideoList from '../../Components/VideoList/VideoList.jsx'
 import { Tooltip } from 'react-bootstrap'
 import { OverlayTrigger } from 'react-bootstrap'
-import {Modal} from 'react-bootstrap'
+import SideNav from './SideNav.jsx'
 import {Button} from 'react-bootstrap'
 import ProfileBadges from './Badges/Badges.jsx'
-
-
-export default class StudentDash extends Component{
+import {connect} from 'react-redux'
+import Img from '../../../assets/classroom1.png'
+class StudentDash extends Component{
 
   constructor(props){
     super(props)
     this.state ={
       admin: false,
       history: {props},
+      adminStudent: null,
       unwatched: 0,
       loading: false,
       user: [],
@@ -24,39 +25,38 @@ export default class StudentDash extends Component{
       progress: "http://www.pngmart.com/files/4/Circle-PNG-Transparent-Image.png",
       showingVids: [],
       open: false,
-      clicked: 0
+      clicked: 0,
+      final: false
 
     }
     this.changeImg = this.changeImg.bind(this)
     this.openM = this.openM.bind(this)
     this.closeM = this.closeM.bind(this)
     this.showVids = this.showVids.bind(this)
-    this.changeVids = this.changeVids.bind(this)
+
   }
 
 changeImg(){
 console.log('clicked will change img')
 }
 showVids(part_videos){
-  console.log(part_videos, 'what iz diz')
+  let user=""
   this.setState({showingVids: part_videos})
-this.setState({ open: !this.state.open })
-        let user = localStorage.getItem('ind')
-     this.setState({loading: true})
+if (this.props.user.admin==true){
+   user=this.state.adminStudent
+}else if (this.props.user.admin==false){
+   user = localStorage.getItem('ind')
+}
     fetch(`/videos/viewed/${user}/${part_videos}`)
     .then(response => response.json())
     .then(json => json)
     .then(showingVids =>
       this.setState({
-      showingVids,
-      loading: false
+      showingVids
     })
       )
-    console.log(this.state.showingVids)
 }
-changeVids(){
-  console.log('changing vids')
-}
+
  getInitialState(){
     return { showModal: false };
   }
@@ -68,13 +68,52 @@ changeVids(){
   openM(){
     this.setState({ showModal: true });
   }
-progressCompleted(){
-  this.setState
+shouldComponentUpdate(props, state){
+
+if (this.state.final==true){
+  this.forceUpdate()
+  return false
+}
+  if (this.props.admin==true && this.props.student_id){
+  let user = this.state.adminStudent
+  fetch(`/student/${user}`)
+    .then(response => response.json())
+    .then(json => json)
+    .then(user =>
+      this.setState({
+      user,
+      thumbnail: user.profile_img
+    }))
+
+fetch(`/videos/non/${user}`)
+    .then(response => response.json())
+    .then(json => json)
+    .then(unwatched =>
+      this.setState({
+      unwatched,
+      final: true
+    })
+      ).catch(error=> console.log(error))
+  this.forceUpdate()
+  return true
+  }
+
+return true
 }
 
+
 componentWillMount(){
-   this.setState({loading: true})
-    let user = localStorage.getItem('ind')
+let user
+if (this.props.user.admin==true){
+  fetch("/student/admin/"+this.props.student_id)
+  .then(r=> r.json())
+  .then(json=> json)
+  .then(it=> this.setState({adminStudent: it}))
+user=this.state.adminStudent
+
+} else if(this.props.user.admin==false){
+  user=localStorage.getItem('ind')
+}
     fetch(`/student/${user}`)
     .then(response => response.json())
     .then(json => json)
@@ -87,63 +126,32 @@ componentWillMount(){
     fetch(`/videos/non/${user}`)
     .then(response => response.json())
     .then(json => json)
-    .then(unwatched =>(
-      console.log(unwatched, 'unwatched'),
+    .then(unwatched =>
       this.setState({
       unwatched
     })
-      ))
-    var token = localStorage.getItem('token')
-    fetch('/user/verify', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        token: token,
-      })
-    })
-    .then(r => r.json())
-    .then(data => (console.log(data, "verify admin"),
-      console.log('set admin state here'),
-       this.setState({
-        admin: data.admin
-      })
-      // clean this up!
-    ))
-    this.setState({loading: false})
+      )
     }
 
   render(){
     let { admin, unwatched, user, progress } = this.state
+    console.log("img is********", Img)
     const classes = this.state.open ? 'show_vids' : 'vids hide'
     const tooltip = (
   <Tooltip id="tooltip"><strong>Click to change: </strong> profile image</Tooltip> )
 
-
+  const background = Img
+  const trial ="https://upload.wikimedia.org/wikipedia/commons/4/4e/Macaca_nigra_self-portrait_large.jpg"
     return(
-     <div>
-     <Modal show={this.state.showModal} onHide={this.closeM}>
-          <Modal.Header >
-            <Modal.Title style={{textAlign: 'center'}}>Upload Profile Image</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-          <div>
-              <label>File </label>
-              <input type='file' />
-      </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.closeM}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-     <div className="student_prof">
-     <OverlayTrigger placement="top" overlay={tooltip}>
-      <img src={user.profile_img} className="student_dash_thumb" alt="Profile Picture" style={{outline: 'none', cursor: 'inherit', cursor: 'pointer'}} onClick={this.openM}/>
-    </OverlayTrigger>
-      <p>{user.email}</p>
-      </div>
-      <section style={{height: '430px', paddingTop: '0px', paddingBottom: '0px'}} className="content-block">
+     <div id="hi"style={{marginTop: '-30px',height:'89.57vh',backgroundImage: `url(${background})`, backgroundSize: 'cover'}}>
+
+     <SideNav
+    user={user}
+    badgeAdmin={this.props.admin}
+    badgeAdminStudent={this.state.adminStudent}
+    badgeTrial={this.showVids} />
+
+      <section style={{zIndex:'0', height: '430px', paddingTop: '0px', paddingBottom: '0px'}} className="content-block">
       <div className="container">
 
       <ul className="nav nav-tabs text-center" role="tablist" id="myTab">
@@ -160,7 +168,7 @@ componentWillMount(){
             </div>
                             :
               <Unwatchedvideo
-
+                            admin={this.state.adminStudent}
                             video_id= {unwatched.video_id}
                             className=""
                             src={unwatched.source}
@@ -175,15 +183,8 @@ componentWillMount(){
 
       </div>
   </section>
-
-  <ProfileBadges
-   admin={admin}
-   trial={this.showVids}/>
-
-
-
 {(this.state.showingVids.length) ?
-<section  id={classes} className="content-block gallery-2" style={{paddingTop:'0px'}}>
+<section  id={classes} className="content-block gallery-2" style={{paddingTop:'0px', zIndex:'-1'}}>
 
       <div className="container">
 
@@ -214,3 +215,7 @@ componentWillMount(){
       )
   }
 }
+function mapStateToProps(state){
+  return {auth: state.auth.isAuthenticated, user:state.auth.user}
+}
+export default connect(mapStateToProps)(StudentDash)

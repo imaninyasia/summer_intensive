@@ -28,8 +28,7 @@ export default class Interactive_Zone extends Component{
     fetch('/videos/ind/'+video_id)
     .then(response => response.json())
     .then(json => json)
-    .then(video =>(
-      console.log(video, 'this is what got loaded'),
+    .then(video =>
       this.setState({
       vid: video.video_id,
       sr: video.source,
@@ -39,7 +38,7 @@ export default class Interactive_Zone extends Component{
       course: video.course,
       part: video.part
     })
-      ))
+      )
   }
   render(){
     const {loading} = this.props

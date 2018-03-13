@@ -20,20 +20,6 @@ onLoad(data){
 componentDidMount(){
   console.log('showing these', this.props.showVids)
 }
-  //  componentWillMount() {
-  //       let user = localStorage.getItem('ind')
-  //    this.setState({loading: true})
-  //   fetch(`/videos/viewed/${user}/${this.props.showVids}`)
-  //   .then(response => response.json())
-  //   .then(json => json)
-  //   .then(videos =>
-  //     this.setState({
-  //     videos,
-  //     loading: false
-  //   })
-  //     )
-  // }
-
 
   render(){
     let {  videos, loading, viewable } = this.state

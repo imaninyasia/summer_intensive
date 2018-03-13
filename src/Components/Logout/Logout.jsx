@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, propTypes } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux'
 import './Logout.css';
-export default class Logout extends Component{
+class Logout extends Component{
 
   constructor(props){
     super(props)
@@ -14,6 +15,7 @@ export default class Logout extends Component{
    logoutnow() {
       localStorage.removeItem('ind');
       localStorage.removeItem('token');
+      this.dispatch(this.props.logout())
   }
   render(){
     return(
@@ -25,3 +27,9 @@ export default class Logout extends Component{
   }
 
 }
+
+Logout.propTypes = {
+  logout: React.PropTypes.func.isRequired
+}
+
+export default connect()(Logout);

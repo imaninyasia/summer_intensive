@@ -28,11 +28,6 @@ export default class UserList extends Component{
         const {users, loading} = this.state
         return (
             <div className="user-list">
-                <h1> The Students </h1>
-                {(loading)?
-                  <span>loading...</span>:
-                  <span>{users.length} users</span>
-                }
                 {(users.length)?
                   users.map(
                     (user, index) =>

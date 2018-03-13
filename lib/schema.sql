@@ -19,14 +19,9 @@ CREATE TABLE users(
   admin BOOLEAN NOT NULL,
   final_grade VARCHAR,
   profile_img TEXT,
-  assessment_1 TEXT,
-  assessment_2 TEXT,
-  assessment_3 TEXT,
-  assessment_4 TEXT,
-  assessment_5 TEXT,
-  assessment_6 TEXT
-
+  assessments TEXT ARRAY
 );
+
 
 CREATE TABLE videos(
   video_id SERIAL PRIMARY KEY,
@@ -103,5 +98,10 @@ CREATE TABLE user_quiz(
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 
 );
+
+CREATE TABLE rooms(
+  id SERIAL PRIMARY KEY,
+  unlocked BOOLEAN
+)
 
 COMMIT;

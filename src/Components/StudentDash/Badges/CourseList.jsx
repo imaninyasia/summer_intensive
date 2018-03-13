@@ -12,8 +12,34 @@ constructor(props){
     super(props)
     this.state= {
       loading: false,
-      courses: []
+      courses: [],
+      final: false
     }
+}
+shouldComponentUpdate(){
+if(!this.props.student){
+  for(let i=0; i<7; i++){
+    this.forceUpdate()
+    i++
+  }
+  this.setState({final:true})
+}else
+{
+  let user=this.props.student
+  this.setState({loading: true})
+    fetch(`/badges/courses/${user}`)
+    .then(response => response.json())
+    .then(json => json)
+    .then(courses =>
+      this.setState({
+      courses,
+      loading: false,
+    })
+      )
+    this.forceUpdate()
+    return false
+}
+return true
 }
 componentWillMount(){
   let user = localStorage.getItem('ind')
@@ -31,7 +57,7 @@ componentWillMount(){
 render(){
   const {loading, courses} = this.state
 return(
-<div>
+<div style={{height:'500px'}}id="isIt">
 <Course />
 {(loading)?
                   <span>loading...</span>:
@@ -47,7 +73,8 @@ return(
                       modify = {course.modify}
                       create = {course.create_}
                       progress={course.progress}
-                      trial={this.props.trial}/>
+                      trial={this.props.trial}
+                      student={this.props.student}/>
                       ):
                     <span> Currently 0 Courses </span>
                 }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import { PropTypes} from 'prop-types';
 import fetch from 'isomorphic-fetch';
 import {withRouter} from "react-router-dom";
 
-export default class Login extends Component {
+export class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -39,6 +40,7 @@ export default class Login extends Component {
       this.setState({correctPass: true})
       localStorage.setItem('token', user.token)
       localStorage.setItem('ind', user.email)
+      this.props.dispatch(this.props.auth(user))
       this.props.next.props.history.push("/dashboard")
       }
       })
@@ -70,5 +72,9 @@ Login.defaultProps = {
 }
 Login.propTypes = {
   email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
+  password: PropTypes.string.isRequired,
+  auth: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 }
+
+export default connect()(Login)

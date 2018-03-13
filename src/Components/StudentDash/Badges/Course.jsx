@@ -19,18 +19,14 @@ export default class Course extends Component{
   }
 completedCourse(parts3){
   if(parts3){
-  console.log(parts3, 'is it complete!!!!!!!!!!!!!!!!')
   let complete = 0
    for (let i=0; i<parts3.length; i++){
     if(parts3[i].progress=='completed'){
-      console.log('completed')
       complete ++
-      console.log(complete, 'complerte')
     }
   }
   if (complete==3){
     console.log('everything done')
-
   }
 }
 
@@ -52,12 +48,14 @@ const course = (
 
 
     }
+
       </OverlayTrigger>}
       <div className="course-parts">
       <PartList
       course={name}
       trial={this.props.trial}
-      completeCourse={this.completedCourse}/>
+      completeCourse={this.completedCourse}
+      student={this.props.student}/>
       </div>
     </div>
 )

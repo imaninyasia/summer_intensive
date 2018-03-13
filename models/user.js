@@ -3,27 +3,33 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 var utils = require('../utils/index.js');
 const salt = 10;
+const auth =  require('../src/Routes/Redux/actions.js')
 const profile_image = "http://s3.amazonaws.com/appforest_uf/f1493773137867x425836683949455600/empty_profile.png"
 function createUser(req, res, next) {
+  let assessments = "{'null', 'null', 'null', 'null', 'null', 'null', 'null','null', 'null'}"
   let admin = req.params.admin
   if (admin == 'false'){
+  db.one('INSERT INTO users (email, password, admin, profile_img, assessments) VALUES ($1, $2, $3, $4, $5) RETURNING *;',
+    [req.body.email, bcrypt.hashSync(req.body.password, salt), admin, profile_image, assessments])
+    .then( (data) => {
+
+      var token = utils.generateToken(data);
+      res.user=data
+      res.user['token'] = token
+      res.user['password']=''
+      console.log('user created!')
+      next()
+    })
+  .catch(error => console.log(error))
+} else if (admin == 'true'){
   db.one('INSERT INTO users (email, password, admin, profile_img) VALUES ($1, $2, $3, $4) RETURNING *;',
     [req.body.email, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
     .then( (data) => {
       var token = utils.generateToken(data);
       res.user=data
       res.user['token'] = token
-      console.log('user created!')
-      next()
-    })
-  .catch(error => console.log(error))
-} else if (admin == 'true'){
-  db.one('INSERT INTO users (email, password, admin, profile_img) VALUES ($1, $2, $3, $4);',
-    [req.body.email, bcrypt.hashSync(req.body.password, salt), admin, profile_image])
-    .then( (data) => {
-      res.user = data
       console.log('user(admin) created!')
-      next()
+      next();
     })
   .catch(error => console.log(error))
 }
@@ -74,11 +80,17 @@ function login(req, res, next) {
     .then((data) => {
       const match = bcrypt.compareSync(req.body.password, data.password);
       if (match) {
-
-        const myToken = jwt.sign({ email: req.body.email, userID: data.user_id }, process.env.SECRET);
-
-        res.user = data
-        res.user['token'] = myToken
+        const myToken = jwt.sign({ admin: data.admin, assessments: data.assessments, email: data.email, final_grade: data.final_grade, userID: data.user_id }, process.env.SECRET);
+        console.log(data, 'pigfeeeett')
+        res.user = {
+          token: myToken,
+          admin: data.admin,
+          assessments: data.assessments,
+          email: data.email,
+          final_grade: data.final_grade,
+          profile_image: data.profile_image,
+          user_id: data.user_id
+        }
         console.log(res.user)
       } else {
         res.status(400).send({ error: "invalid password" });
@@ -122,6 +134,7 @@ function verify(req, res, next) {
     }
   });
 }
+
 
 module.exports = {
   createUser,

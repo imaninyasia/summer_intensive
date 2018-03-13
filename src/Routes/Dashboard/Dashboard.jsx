@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, propTypes } from 'react';
 import UserList from '../../Components/UserList/UserList.jsx'
+import {getEmail} from '../Redux/actions.js'
+import {connect} from 'react-redux'
 import StudentDash from '../../Components/StudentDash/StudentDash.jsx'
-export default class Dashboard extends Component{
+class Dashboard extends Component{
 
   constructor(props){
     super(props)
@@ -32,7 +34,7 @@ componentWillMount(){
     }
 
   render(){
-
+const {userSignupRequest, addFlashMessage} =this.props;
     const admin = this.state.admin
     return(
      <div>
@@ -49,7 +51,7 @@ componentWillMount(){
           </div>
           <hr />
           <div className="editContent">
-            <h2>Hand-picked just for you</h2>
+            <h2>School of Interactive Arts</h2>
           </div>
         </div>
 
@@ -72,8 +74,16 @@ componentWillMount(){
 
 
     </div> :
-                      <StudentDash history={this.props}/>}
+
+                      <StudentDash
+                      studentE={this.props.getEmail}
+                      history={this.props}/>}
 </div>
       )
   }
 }
+
+Dashboard.propTypes = {
+  getEmail: React.PropTypes.func.isRequired,
+}
+export default connect((state)=>{return {} }, {getEmail})(Dashboard);

@@ -1,103 +1,67 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
+import StudentDash from '../../Components/StudentDash/StudentDash.jsx'
 import UserAnswersList from '../../Components/UserList/UserAnswersList/UserAnswersList.jsx';
+import './AdminAnswers.css'
 export default class AdminAnswers extends Component {
 
   constructor(props){
     super(props);
     this.state={
-      student: this.props.match.params.student_id
+      student: this.props.match.params.student_id,
+      assessment: null,
+      url: null
     }
+
+    this.submit = this.submit.bind(this)
+    this.change = this.change.bind(this)
+    this.assess = this.assess.bind(this)
   }
+change(e){
+  this.setState({assessment: e.target.value})
+}
+assess(e){
+  this.setState({url: e.target.value})
+}
+submit(e){
+  e.preventDefault()
+  console.log('submitting form for assessment')
+  console.log(this.state.student)
+  fetch(`/admin/assessment/${this.state.student}`, {
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({
+      assessment: this.state.assessment,
+      url: this.state.url
+      })
+  })
+
+}
 
   render(){
     return(
       <div>
-      <h1> User </h1>
-      <section id="basic-1-6" className="basic-1-6 content-block">
-    <div className="container">
-        <div className="underlined-title">
-          <div className="editContent">
-              <h1>Short Answers</h1>
-          </div>
-          <hr />
-          <div className="editContent">
-          </div>
-        </div>
-      <div className="row">
+      <form className="AssessmentForm"onSubmit={this.submit}>
+<label>Assessment's corresponding course</label>
+  <select onChange={this.change}name="assessment">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+  <br />
+  <input placeholder="Assessment URL" className="putAssess"onChange={this.assess}type="text" />
+  <button className="btn btn-primary" type="submit"> Upload </button>
+</form>
+      <StudentDash admin={true}
+      student_id={this.state.student}/>
 
-        <div className="col-lg-8 col-md-7 col-sm-12">
-          <div className="editContent">
-            <h2>Question One</h2>
-          </div>
-          <div className="editContent" style={{outline: 'rgba(233, 94, 94, 0.5) solid 2px', outlineOffset: '-2px', cursor: 'pointer'}} data-medium-editor-element="true" role="textbox" aria-multiline="true" data-placeholder="Type your text" data-medium-focused="true">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa ex, suscipit id ligula at, luctus tempus dolor. Etiam sodales posuere ligula, eu aliquet nunc commodo vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa ex, suscipit id ligula at, luctus tempus dolor. Etiam sodales posuere ligula, eu aliquet nunc commodo vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-          </div>
-        </div>
 
-        <div className="col-lg-4 col-md-5 col-sm-12">
-
-        </div>
-
-      </div>
-        <div className="row">
-
-        <div className="col-lg-8 col-md-7 col-sm-12">
-          <div className="editContent">
-            <h2>Question Two</h2>
-          </div>
-          <div className="editContent" style={{outline: 'rgba(233, 94, 94, 0.5) solid 2px', outlineOffset: '-2px', cursor: 'pointer'}} contenteditable="true" spellcheck="true" data-medium-editor-element="true" role="textbox" aria-multiline="true" medium-editor-index="0" data-placeholder="Type your text" data-medium-focused="true">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa ex, suscipit id ligula at, luctus tempus dolor. Etiam sodales posuere ligula, eu aliquet nunc commodo vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa ex, suscipit id ligula at, luctus tempus dolor. Etiam sodales posuere ligula, eu aliquet nunc commodo vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-          </div>
-        </div>
-
-        <div className="col-lg-4 col-md-5 col-sm-12">
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <section id="basic-1-17" className="basic-1-17 content-block">
-    <div className="container">
-
-        <div className="underlined-title">
-          <div className="editContent">
-              <h1>Long Answers</h1>
-          </div>
-          <hr />
-          <div className="editContent">
-          </div>
-        </div>
-
-      <div className="row">
-
-        <div className="col-sm-6">
-          <div className="editContent">
-            <h2>Column One</h2>
-          </div>
-          <div className="editContent">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa ex, suscipit id ligula at, luctus tempus dolor. Etiam sodales posuere ligula, eu aliquet nunc commodo vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-          </div>
-        </div>
-
-        <div className="col-sm-6">
-          <div className="editContent">
-            <h2>Column Two</h2>
-          </div>
-          <div className="editContent">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa ex, suscipit id ligula at, luctus tempus dolor. Etiam sodales posuere ligula, eu aliquet nunc commodo vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-      <UserAnswersList user={this.state.student}/>
-      <label>User Assesment</label>
-      <input type="text" ref='user_assesment' />
       </div>
       )
   }

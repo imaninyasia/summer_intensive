@@ -28,16 +28,18 @@ function getParts(req, res, next){
 }
 
 function updateProgress(req, res, next){
+  let progress='begun'
+    console.log('helloooos')
   db.one('select user_id from users where email=($1)', [req.params.user_e])
   .then((user_id)=>{
+
     db.one('select parts.part_id, parts.videos, parts.course, part_relation.id, part_relation.progress, part_relation.user_id from parts join part_relation on parts.part_id = part_relation.part_id where ($1)=any(parts.videos) and part_relation.user_id=($2);',[req.params.vid_id, user_id.user_id])
     .then((part)=>{
-    if(req.params.vid_id!=part.videos[part.videos.length-1]){
-      progress='begun'
+
       console.log('updating part to begun')
       db.none('UPDATE part_relation SET progress = ($3) where part_id=($1) and user_id=($2);',[part.part_id, part.user_id, progress])
       .catch(error => console.log(error))
-    }
+
 
     })
     .catch(error => console.log(error))
@@ -46,13 +48,13 @@ function updateProgress(req, res, next){
 }
 
 function updateComplete(req, res, next){
-console.log('going to update progress to started')
+console.log('going to update progress to completed')
   db.one('select user_id from users where email=($1)', [req.params.user_c])
   .then((user_id)=>{
     db.one('select parts.part_id, parts.videos, parts.course, part_relation.id, part_relation.progress, part_relation.user_id from parts join part_relation on parts.part_id = part_relation.part_id where ($1)=any(parts.videos) and part_relation.user_id=($2);',[req.params.video_id, user_id.user_id])
     .then((part)=>{
     if(req.params.video_id==part.videos[part.videos.length-1]){
-      progress='completed'
+      let progress='completed'
       console.log('updating part to completed')
 
       db.none('UPDATE part_relation SET progress = ($1) where part_id=($2) and user_id=($3);',[progress, part.part_id, part.user_id, ])

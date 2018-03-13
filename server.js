@@ -42,7 +42,6 @@ app.use('/videos', videoRouter )
 app.use('/questions', questionRouter)
 app.use('/admin', adminRouter)
 app.use('/badges', badgesRouter)
-// app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/', '/favicon.ico','/user/signup', 'user/login', '/user/verify', '/videos/', '/student/','/questions/*','/courses/*', '/videos/ind/*']}));
 app.use(function(req, res, next) {
   // check header or url parameters or post parameters for token
 

@@ -8,14 +8,45 @@ constructor(props){
     super(props)
     this.state= {
       parts: [],
-      loading: false
+      loading: false,
+      final: false
     }
 
 }
 
+shouldComponentUpdate(){
+  if(this.state.parts.length>0){
+    this.forceUpdate()
+    return false
+  }
+if (!this.props.student){
+  for (let i=0; i<6; i++){
+    this.forceUpdate()
+    i++
+    return true
+  }
+}else {
+    let user = this.props.student
+    let course = this.props.course
+     if (this.props.course){
+fetch(`/badges/parts/${user}/${course}`)
+    .then(response => response.json())
+    .then(json => json)
+    .then(parts =>
+      this.setState({
+      parts,
+    })
+      )
+    this.forceUpdate()
+     }
+     this.forceUpdate()
+     return true
+}
+return true
+}
+
 componentWillMount(){
   let user = localStorage.getItem('ind')
-
      let course = this.props.course
      if (this.props.course){
 fetch(`/badges/parts/${user}/${course}`)
@@ -55,7 +86,8 @@ return(
                       videos={part.videos}
                       video_show={this.props.trial}
                       part_id={part.part_id}
-                      completeCourse={this.props.completeCourse}/>
+                      completeCourse={this.props.completeCourse}
+                      />
                      ):
                      null
                 }

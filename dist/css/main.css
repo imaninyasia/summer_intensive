@@ -13,65 +13,19 @@
     margin-top: 13px;
     margin-left: 10px;
   }
+.putAssess{
+  line-height: 30px;
+  width: 250px;
+}
+
+.AssessmentForm{
+  margin-top: 12px;
+  text-align: center;
+}
 .user-list{
   display: 'inline-block';
 }
 
-
-
-.vimeo_vid {
-  height: 315px;
-  width:560px;
-}
-
-.vimeo-play-button{
-  display: none;
-  width: 40px;
-  height: 40px;
-
-}
-
-.vimeo_vid_course{
-  height: 442.5px;
-  width:720px;
-  margin-top:-25%;
-}
-.vimeo_vid_course .vimeo-play-button{
-  display: block;
-  margin-left: 45%;
-  margin-top: 25%;
-  width: 40px;
-  height: 40px;
-
-}
-
-iframe {
-  height: 150%;
-  width:720px;
-  margin-top:35%;
-
-}
-
-
-.youtube-frame{
-  display: block;
-}
-.vimeo_vid {
-  height: 315px;
-  width:560px;
-}
-
-.vimeo-play-button{
-  width: 40px;
-  height: 40px;
-}
-
-
-iframe {
-   height: 315px;
-  width:560px;
-
-}
 
 .student_dash_thumb {
 width: 220px;
@@ -89,8 +43,8 @@ img {
 }
 
 #profile{
-  height: 100%;
-  width: 60%;
+  height: 500px;
+  width: 100%;
   /*border-style: solid;*/
    margin: 0 auto;
    display: flex;
@@ -131,4 +85,190 @@ height: auto;
 text-align: center;
 display: inline-block;
 padding: 20px;
+}
+.sidenav {
+    text-align: center;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 100px;
+}
+.student_dash_thumb {
+width: 220px;
+}
+#email{
+  font-size: 30px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+.grid {
+  border: 2px solid black;
+  text-align: center;
+  display: inline-block;
+  background: #EEE;
+  width: 400px;
+  height: 365;
+}
+
+/* clearfix */
+/*.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+*/
+/* ---- grid-item ---- */
+
+.grid-item {
+  display: inherit;
+  position: block;
+  width: 160px;
+  height: 120px;
+  float: left;
+  /*border: 2px solid #333;*/
+  border-color: black;
+
+}
+
+.classroom {
+  width: 120px;
+  height: 120px;
+  float: left;
+  background:brown;
+  display: block;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+}
+.grid-item:hover {
+  background: #A2C;
+  border-color: white;
+  cursor: pointer;
+}
+.classroom:hover{
+  background: #A2C;
+  border-color: white;
+  cursor: pointer;
+}
+.hallway{
+  width: 60px;
+  margin-top: 30px;
+  height: 300px;
+}
+.staircase{
+  width: 120px;
+  margin-left:-341px;
+  margin-top: 120px
+}
+.classroom{
+  margin-top:240px;
+  width: 160px;
+  margin-left:-381px;
+
+}
+.gym {
+  position: block;
+  margin-left: 1px;
+  margin-top: 30px;
+  width:150px;
+  height: 150px;
+}
+.dormitory{
+  margin-left: -150px;
+  margin-top: 180px;
+  height: 180px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.vimeo_vid {
+  height: 315px;
+  width:560px;
+}
+
+.vimeo-play-button{
+  display: none;
+  width: 40px;
+  height: 40px;
+
+}
+
+.vimeo_vid_course{
+  height: 442.5px;
+  width:720px;
+  margin-top:-4%;
+}
+.vimeo_vid_course .vimeo-play-button{
+  display: block;
+  margin-left: 45%;
+  margin-top: 25%;
+  width: 40px;
+  height: 40px;
+
+}
+
+iframe {
+  height: 150%;
+  width:720px;
+  margin-top:35%;
+
+}
+
+.youtube-frame{
+  display: block;
+}
+.vimeo_vid {
+  height: 315px;
+  width:560px;
+}
+
+.vimeo-play-button{
+  width: 40px;
+  height: 40px;
+}
+
+
+iframe {
+   height: 315px;
+  width:560px;
+
+}
+
+.vimeo{
+  width:560px;
+  height: 316px;
+}
+.peop {
+
 }

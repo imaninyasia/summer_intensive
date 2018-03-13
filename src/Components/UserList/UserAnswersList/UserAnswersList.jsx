@@ -7,14 +7,20 @@ export default class UserAnswersList extends Component {
     constructor(props){
     super(props)
     this.state= {
-      answers: [],
-      loading: false,
+      answers: null,
+      loading: false
     }
   }
 
   componentDidMount(){
+
+  }
+  componentDidUpdate(){
     let user = this.props.user
-    fetch(`/admin/answers/${user}`)
+    let video = this.props.video
+    if (this.state.answers!=null){
+    }else{
+      fetch(`/admin/answers/${user}/${video}`)
     .then(response => response.json())
     .then(json => json)
     .then(answers =>
@@ -22,30 +28,32 @@ export default class UserAnswersList extends Component {
       answers,
       loading: false
     }))
+    }
+
   }
 
 render() {
         const {answers, loading} = this.state
         const { user }= this.props
-        console.log(user)
         return (
             <div className="answers-list">
-                {(loading)?
-                  <span>loading...</span>:
-                  <span>{answers.length} answers</span>
-                }
-                {(answers.length)?
+
+                {(answers)?
                   answers.map(
                     (answer, index) =>
                 <Useranswer
-                      Key={index}
+                      key={index}
                       user={answer.username}
                       answer={answer.answer}
                       question={answer.question}
                       ques_num= {answer.question_id}
+                      answer_long={answer.answer_long}
+                      answer_short={answer.answer_short}
+
                       />
+
                       ):
-                    <span> This user hasn't answered any questions </span>
+                     null
                 }
             </div>
         )

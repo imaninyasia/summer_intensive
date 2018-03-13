@@ -8,8 +8,9 @@ userRouter.route('/login')
   .post( login, (req, res) => res.json(res.user || res.status));
 
 userRouter.route('/user/:user')
-  .post(create_relation, (req, res)=> res.json({message: "created user video relation table"}))
+  .post(create_relation, (req, res)=> res.json({message: "created user video relation table"}));
 
 userRouter.route('/verify')
   .post(verify, (req, res)=> res.json(res.user || {message: 'user re-verified'}));
+
 module.exports = userRouter;

@@ -70,6 +70,10 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
       },
+      {
+        test: /\.(gif|jpe?g|png|ico)$/,
+        loader: 'url-loader?limit=10000'
+      },
       { test: /\.jpg$/,
         include: path.join(__dirname, 'src'),
         loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
